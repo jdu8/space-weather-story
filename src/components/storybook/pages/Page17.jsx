@@ -1,38 +1,13 @@
 import { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import { Sphere } from '@react-three/drei';
+// import { Sphere } from '@react-three/drei';
 import { motion, AnimatePresence } from 'framer-motion';
 import Canvas3D from '../Canvas3D';
 import TextOverlay from '../TextOverlay';
 import ThreeJSEarth from '../effects/ThreeJSEarth';
 
-// Shield grid around Earth
-function InfrastructureShield({ animationProgress }) {
-  const shieldRef = useRef();
-
-  useFrame((state) => {
-    if (!shieldRef.current) return;
-    const time = state.clock.getElapsedTime();
-
-    shieldRef.current.rotation.y = time * 0.1;
-    const pulse = 1 + Math.sin(time * 2) * 0.05;
-    shieldRef.current.scale.setScalar(pulse);
-  });
-
-  return (
-    <group ref={shieldRef} position={[0, 0, -3]}>
-      <Sphere args={[3.2, 32, 32]}>
-        <meshBasicMaterial
-          color="#00ff88"
-          transparent
-          opacity={animationProgress * 0.15}
-          wireframe
-        />
-      </Sphere>
-    </group>
-  );
-}
+// Removed InfrastructureShield (3D wireframe sphere)
 
 // Protected systems icons orbiting
 function ProtectedSystems({ animationProgress }) {
@@ -210,7 +185,6 @@ export default function Page17({ isInView }) {
             showControls={false}
             camera={{ position: [0, 0, 12], fov: 60 }}
           >
-            <InfrastructureShield animationProgress={Math.min(animationProgress * 2, 1)} />
             <ProtectedSystems animationProgress={Math.min(animationProgress * 2, 1)} />
             <ResilienceNetwork animationProgress={Math.min(animationProgress * 2, 1)} />
 
