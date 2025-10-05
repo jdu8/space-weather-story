@@ -1,40 +1,14 @@
 import { useRef, useState, useEffect } from 'react';
 import { useFrame, useLoader } from '@react-three/fiber';
 import { TextureLoader } from 'three';
-import { Sphere } from '@react-three/drei';
+// import { Sphere } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import Canvas3D from '../Canvas3D';
 import TextOverlay from '../TextOverlay';
 import ThreeJSEarth from '../effects/ThreeJSEarth';
 import * as THREE from 'three';
 
-// Magnetosphere visualization
-function Magnetosphere({ animationProgress }) {
-  const fieldRef = useRef();
-
-  useFrame((state) => {
-    if (!fieldRef.current) return;
-    const time = state.clock.getElapsedTime();
-    fieldRef.current.rotation.y = time * 0.1;
-  });
-
-  const opacity = Math.min(animationProgress * 2, 0.3);
-
-  return (
-    <group ref={fieldRef} position={[3, 0, -2]}>
-      {/* Outer magnetosphere shell */}
-      <Sphere args={[3.5, 32, 32]}>
-        <meshBasicMaterial
-          color="#00d9ff"
-          transparent
-          opacity={opacity}
-          side={THREE.DoubleSide}
-          wireframe
-        />
-      </Sphere>
-    </group>
-  );
-}
+// Magnetosphere removed per request
 
 // Fiery approaching Earth
 function FieryApproaching({ animationProgress }) {
@@ -167,7 +141,6 @@ export default function Page4({ isInView }) {
             showControls={false}
             camera={{ position: [0, 0, 8], fov: 60 }}
           >
-            <Magnetosphere animationProgress={animationProgress} />
             <FieryApproaching animationProgress={animationProgress} />
             <ImpactParticles animationProgress={animationProgress} />
 

@@ -120,14 +120,39 @@ export default function Quiz() {
         </p>
       </div>
 
-      <motion.div
-        key={batchIndex}
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -20 }}
-        className="question-card"
-      >
-        <h2 className="question-text">{question?.question || (loading ? 'Loading...' : 'No question')}</h2>
+      {/* Loading animation card */}
+      {loading && (
+        <motion.div
+          key={`loading-${batchIndex}`}
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+          className="question-card"
+        >
+          <h2 className="question-text">Generating questions…</h2>
+          <div style={{ display: 'grid', gap: '12px' }}>
+            {[0,1,2,3,4].map((i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0.4, width: '40%' }}
+                animate={{ opacity: [0.4, 0.9, 0.4], width: ['40%', '90%', '40%'] }}
+                transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.12 }}
+                style={{ height: '16px', borderRadius: '8px', background: 'rgba(255,255,255,0.12)' }}
+              />
+            ))}
+          </div>
+        </motion.div>
+      )}
+
+      {!loading && (
+        <motion.div
+          key={batchIndex}
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -20 }}
+          className="question-card"
+        >
+          <h2 className="question-text">{question?.question || 'No question'}</h2>
 
         <div className="options-container">
           {(question?.options || []).map((option, index) => {
@@ -172,9 +197,10 @@ export default function Quiz() {
             </motion.div>
           )}
         </AnimatePresence>
-      </motion.div>
+        </motion.div>
+      )}
 
-      {question && showExplanation && (
+      {!loading && question && showExplanation && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
