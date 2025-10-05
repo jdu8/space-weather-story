@@ -5,27 +5,8 @@ import { Sphere } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import Canvas3D from '../Canvas3D';
 import TextOverlay from '../TextOverlay';
+import ThreeJSEarth from '../effects/ThreeJSEarth';
 import * as THREE from 'three';
-
-// Earth with magnetosphere
-function Earth() {
-  const earthRef = useRef();
-  const texture = useLoader(TextureLoader, '/sprites/026_earth_from_space.png');
-
-  useFrame((state) => {
-    if (earthRef.current) {
-      earthRef.current.rotation.y += 0.002;
-    }
-  });
-
-  return (
-    <group position={[3, 0, -2]}>
-      <Sphere ref={earthRef} args={[2, 64, 64]}>
-        <meshStandardMaterial map={texture} />
-      </Sphere>
-    </group>
-  );
-}
 
 // Magnetosphere visualization
 function Magnetosphere({ animationProgress }) {
@@ -68,11 +49,22 @@ function FieryApproaching({ animationProgress }) {
 
   // Move from left toward Earth
   const xPosition = -10 + animationProgress * 10;
-  const scale = 2 + animationProgress * 2;
+
+  // Smaller size - reduce from 2-4 to 1.2-2
+  const baseScale = 1.2 + animationProgress * 0.8;
+
+  // Start dissolving after 70% (impact moment)
+  const dissolvePhase = Math.max(0, (animationProgress - 0.7) * 3.33);
+  const opacity = 1 - dissolvePhase;
+
+  // Shrink and fade when dissolving
+  const scale = baseScale * (1 - dissolvePhase * 0.5);
+
+  if (opacity <= 0) return null;
 
   return (
     <sprite ref={spriteRef} position={[xPosition, 0, 2]} scale={[scale, scale, 1]}>
-      <spriteMaterial map={texture} transparent={true} />
+      <spriteMaterial map={texture} transparent={true} opacity={opacity} />
     </sprite>
   );
 }
@@ -159,19 +151,30 @@ export default function Page4({ isInView }) {
   return (
     <>
       {isInView && (
-        <Canvas3D
-        showStars={true}
-        showControls={false}
-        camera={{ position: [0, 0, 8], fov: 60 }}
-      >
-        <Earth />
-        <Magnetosphere animationProgress={animationProgress} />
-        <FieryApproaching animationProgress={animationProgress} />
-        <ImpactParticles animationProgress={animationProgress} />
+        <>
+          <ThreeJSEarth
+            width={480}
+            height={480}
+            position="absolute"
+            right="25%"
+            top="50%"
+            opacity={animationProgress}
+            rotationSpeed={0.005}
+            className="translate-y-center"
+          />
+          <Canvas3D
+            showStars={true}
+            showControls={false}
+            camera={{ position: [0, 0, 8], fov: 60 }}
+          >
+            <Magnetosphere animationProgress={animationProgress} />
+            <FieryApproaching animationProgress={animationProgress} />
+            <ImpactParticles animationProgress={animationProgress} />
 
-        <pointLight position={[0, 0, 5]} intensity={2} color="#00d9ff" />
-        <ambientLight intensity={0.4} />
-      </Canvas3D>
+            <pointLight position={[0, 0, 5]} intensity={2} color="#00d9ff" />
+            <ambientLight intensity={0.4} />
+          </Canvas3D>
+        </>
       )}
 
       <TextOverlay position="bottom" isInView={isInView}>

@@ -108,14 +108,14 @@ function FierySprite({ animationProgress }) {
     spriteRef.current.rotation.z = Math.sin(time * 1.2) * 0.02;
   });
 
-  // Scale up and come toward camera
+  // Scale up and come toward camera - reduced from 5 to 3.5
   const scale = spritePhase;
 
   return (
     <sprite
       ref={spriteRef}
       position={[0, 0, 0]}
-      scale={[scale * 5, scale * 5, 1]}
+      scale={[scale * 3.5, scale * 3.5, 1]}
     >
       <spriteMaterial
         map={texture}

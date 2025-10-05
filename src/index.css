@@ -50,6 +50,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
+  overflow-y: hidden;
   background-color: var(--deep-space);
 }
 
@@ -89,22 +90,21 @@ html {
   box-shadow: 0 0 40px rgba(255, 107, 53, 0.4);
 }
 
-/* Custom scrollbar */
+/* Hide all scrollbars */
 ::-webkit-scrollbar {
-  width: 10px;
+  display: none;
+  width: 0;
+  height: 0;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--deep-space);
+/* For Firefox */
+* {
+  scrollbar-width: none;
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--aurora-green), var(--aurora-blue));
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, var(--aurora-blue), var(--cosmic-purple));
+/* For IE and Edge */
+* {
+  -ms-overflow-style: none;
 }
 
 /* Animation utilities */

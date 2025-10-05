@@ -1,29 +1,11 @@
 import { useRef, useState, useEffect } from 'react';
 import { useFrame, useLoader } from '@react-three/fiber';
 import { TextureLoader } from 'three';
-import { Sphere } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import Canvas3D from '../Canvas3D';
 import TextOverlay from '../TextOverlay';
+import ThreeJSEarth from '../effects/ThreeJSEarth';
 import * as THREE from 'three';
-
-// Earth with satellites
-function EarthWithSatellites({ animationProgress }) {
-  const earthRef = useRef();
-  const texture = useLoader(TextureLoader, '/sprites/026_earth_from_space.png');
-
-  useFrame(() => {
-    if (earthRef.current) {
-      earthRef.current.rotation.y += 0.002;
-    }
-  });
-
-  return (
-    <Sphere ref={earthRef} args={[2, 64, 64]} position={[0, 0, -3]}>
-      <meshStandardMaterial map={texture} />
-    </Sphere>
-  );
-}
 
 // Multiple satellites orbiting
 function OrbitingSatellites({ animationProgress }) {
@@ -126,19 +108,30 @@ export default function Page12({ isInView }) {
   return (
     <>
       {isInView && (
-        <Canvas3D
-        showStars={true}
-        showControls={false}
-        camera={{ position: [0, 0, 10], fov: 60 }}
-      >
-        <EarthWithSatellites animationProgress={animationProgress} />
-        <OrbitingSatellites animationProgress={animationProgress} />
-        <TechIcons animationProgress={animationProgress} />
+        <>
+          <ThreeJSEarth
+            width={480}
+            height={480}
+            position="absolute"
+            left="50%"
+            top="50%"
+            opacity={animationProgress}
+            rotationSpeed={0.006}
+            className="translate-center"
+          />
+          <Canvas3D
+            showStars={true}
+            showControls={false}
+            camera={{ position: [0, 0, 10], fov: 60 }}
+          >
+            <OrbitingSatellites animationProgress={animationProgress} />
+            <TechIcons animationProgress={animationProgress} />
 
-        <pointLight position={[5, 5, 5]} intensity={2} color="#00d9ff" />
-        <pointLight position={[-5, -5, 5]} intensity={2} color="#ff6b35" />
-        <ambientLight intensity={0.4} />
-      </Canvas3D>
+            <pointLight position={[5, 5, 5]} intensity={2} color="#00d9ff" />
+            <pointLight position={[-5, -5, 5]} intensity={2} color="#ff6b35" />
+            <ambientLight intensity={0.4} />
+          </Canvas3D>
+        </>
       )}
 
       <TextOverlay position="bottom" isInView={isInView}>

@@ -4,6 +4,7 @@ import { TextureLoader } from 'three';
 import { motion } from 'framer-motion';
 import Canvas3D from '../Canvas3D';
 import TextOverlay from '../TextOverlay';
+import ShaderAurora from '../effects/ShaderAurora';
 import * as THREE from 'three';
 
 // Fiery arriving (happy version)
@@ -27,150 +28,14 @@ function FieryArriving({ animationProgress }) {
   );
 }
 
-// Massive aurora effects (the most powerful ever)
-function CarringtonAurora({ animationProgress }) {
-  const shaderRef = useRef();
 
-  useFrame((state) => {
-    if (!shaderRef.current) return;
-    const time = state.clock.getElapsedTime();
-    shaderRef.current.uniforms.time.value = time;
-  });
-
-  const uniforms = {
-    time: { value: 0 },
-    opacity: { value: Math.min(animationProgress * 1.5, 1) },
-  };
-
-  const vertexShader = `
-    varying vec2 vUv;
-    void main() {
-      vUv = uv;
-      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-    }
-  `;
-
-  const fragmentShader = `
-    uniform float time;
-    uniform float opacity;
-    varying vec2 vUv;
-
-    void main() {
-      // Intense, chaotic waves
-      float wave1 = sin(vUv.x * 12.0 + time * 3.0) * 0.5 + 0.5;
-      float wave2 = sin(vUv.x * 8.0 - time * 2.5) * 0.5 + 0.5;
-      float wave3 = sin(vUv.x * 15.0 + time * 4.0) * 0.5 + 0.5;
-
-      // Vivid colors - green, purple, red (rare for aurora)
-      vec3 color1 = vec3(0.0, 1.0, 0.4); // Bright green
-      vec3 color2 = vec3(1.0, 0.0, 0.4); // Bright red (rare)
-      vec3 color3 = vec3(0.8, 0.3, 1.0); // Bright purple
-
-      vec3 color = mix(color1, color2, wave1);
-      color = mix(color, color3, wave2 * wave3);
-
-      float alpha = (1.0 - vUv.y * 0.6) * opacity * (wave3 * 0.3 + 0.7);
-
-      gl_FragColor = vec4(color, alpha);
-    }
-  `;
-
-  return (
-    <mesh position={[0, 3, -8]} scale={[30, 12, 1]}>
-      <planeGeometry args={[1, 1, 32, 32]} />
-      <shaderMaterial
-        ref={shaderRef}
-        uniforms={uniforms}
-        vertexShader={vertexShader}
-        fragmentShader={fragmentShader}
-        transparent
-        blending={THREE.AdditiveBlending}
-      />
-    </mesh>
-  );
-}
-
-// Year 1859 title sprite
+// Year 1859 title as 3D text
 function Year1859Title({ animationProgress }) {
-  const texture = useLoader(TextureLoader, '/sprites/052_year_1859_title.png');
-
   const opacity = Math.max(0, (animationProgress - 0.2) * 2);
 
-  return (
-    <sprite position={[0, 3.5, 3]} scale={[6, 1.5, 1]}>
-      <spriteMaterial map={texture} transparent opacity={Math.min(opacity, 1)} />
-    </sprite>
-  );
+  return null; // Will be rendered as HTML overlay instead
 }
 
-// Intense particle effects
-function IntenseParticles({ animationProgress }) {
-  const particlesRef = useRef();
-
-  useFrame(() => {
-    if (!particlesRef.current) return;
-
-    const positions = particlesRef.current.geometry.attributes.position.array;
-    const colors = particlesRef.current.geometry.attributes.color.array;
-    const time = Date.now() * 0.001;
-
-    for (let i = 0; i < 300; i++) {
-      const i3 = i * 3;
-
-      positions[i3 + 1] += Math.sin(time * 3 + i * 0.1) * 0.02;
-
-      const colorCycle = Math.sin(time * 4 + i * 0.05) * 0.5 + 0.5;
-      colors[i3] = colorCycle; // R
-      colors[i3 + 1] = 1 - colorCycle * 0.5; // G
-      colors[i3 + 2] = (1 - colorCycle) * 0.8; // B
-    }
-
-    particlesRef.current.geometry.attributes.position.needsUpdate = true;
-    particlesRef.current.geometry.attributes.color.needsUpdate = true;
-  });
-
-  const particleCount = 300;
-  const positions = new Float32Array(particleCount * 3);
-  const colors = new Float32Array(particleCount * 3);
-
-  for (let i = 0; i < particleCount; i++) {
-    const i3 = i * 3;
-    positions[i3] = (Math.random() - 0.5) * 15;
-    positions[i3 + 1] = Math.random() * 8 - 2;
-    positions[i3 + 2] = -6 + (Math.random() - 0.5) * 4;
-
-    colors[i3] = 1;
-    colors[i3 + 1] = 0.5;
-    colors[i3 + 2] = 0.5;
-  }
-
-  return (
-    <points ref={particlesRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={particleCount}
-          array={positions}
-          itemSize={3}
-        />
-        <bufferAttribute
-          attach="attributes-color"
-          count={particleCount}
-          array={colors}
-          itemSize={3}
-        />
-      </bufferGeometry>
-      <pointsMaterial
-        size={0.18}
-        vertexColors
-        transparent
-        opacity={animationProgress}
-        sizeAttenuation
-        blending={THREE.AdditiveBlending}
-      />
-    </points>
-  );
-}
 
 // Page 10: 1859 Carrington Event
 export default function Page10({ isInView }) {
@@ -204,18 +69,54 @@ export default function Page10({ isInView }) {
     <>
       {isInView && (
         <Canvas3D
-        showStars={true}
-        showControls={false}
-        camera={{ position: [0, 0, 10], fov: 70 }}
-      >
-        <CarringtonAurora animationProgress={animationProgress} />
-        <IntenseParticles animationProgress={animationProgress} />
-        <FieryArriving animationProgress={animationProgress} />
-        <Year1859Title animationProgress={animationProgress} />
+          showStars={true}
+          showControls={false}
+          camera={{ position: [0, 0, 10], fov: 70 }}
+        >
+          <ShaderAurora
+            animationProgress={animationProgress}
+            intensity={2.5}
+            position={[0, 3.5, -8]}
+            scale={[60, 20, 1]}
+          />
+          <FieryArriving animationProgress={animationProgress} />
 
-        <ambientLight intensity={0.3} />
-      </Canvas3D>
+          <ambientLight intensity={0.3} />
+        </Canvas3D>
       )}
+
+      {/* Year 1859 Title Overlay */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{
+          opacity: Math.max(0, (animationProgress - 0.2) * 2),
+          scale: animationProgress > 0.2 ? 1 : 0.8
+        }}
+        transition={{ duration: 0.8 }}
+        style={{
+          position: 'absolute',
+          top: '15%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          pointerEvents: 'none',
+          zIndex: 10,
+        }}
+      >
+        <h1
+          style={{
+            fontSize: 'clamp(64px, 10vw, 120px)',
+            fontWeight: 900,
+            color: '#fff',
+            textShadow: '0 0 60px rgba(255, 0, 100, 0.8), 0 0 100px rgba(255, 0, 100, 0.5)',
+            letterSpacing: '0.1em',
+            fontFamily: "'Impact', 'Arial Black', sans-serif",
+            WebkitTextStroke: '2px rgba(255, 0, 100, 0.5)',
+            margin: 0,
+          }}
+        >
+          1859
+        </h1>
+      </motion.div>
 
       <TextOverlay position="bottom" isInView={isInView}>
         <motion.div

@@ -1,29 +1,11 @@
 import { useRef, useState, useEffect } from 'react';
-import { useFrame, useLoader } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import { TextureLoader } from 'three';
 import { Sphere } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import Canvas3D from '../Canvas3D';
 import TextOverlay from '../TextOverlay';
-
-// Earth with protected infrastructure
-function ProtectedEarth({ animationProgress }) {
-  const earthRef = useRef();
-  const texture = useLoader(TextureLoader, '/sprites/026_earth_from_space.png');
-
-  useFrame(() => {
-    if (earthRef.current) {
-      earthRef.current.rotation.y += 0.002;
-    }
-  });
-
-  return (
-    <Sphere ref={earthRef} args={[2.5, 64, 64]} position={[0, 0, -3]}>
-      <meshStandardMaterial map={texture} />
-    </Sphere>
-  );
-}
+import ThreeJSEarth from '../effects/ThreeJSEarth';
 
 // Shield grid around Earth
 function InfrastructureShield({ animationProgress }) {
@@ -173,19 +155,30 @@ export default function Page23({ isInView }) {
   return (
     <>
       {isInView && (
-        <Canvas3D
-        showStars={true}
-        showControls={false}
-        camera={{ position: [0, 0, 12], fov: 60 }}
-      >
-        <ProtectedEarth animationProgress={animationProgress} />
-        <InfrastructureShield animationProgress={animationProgress} />
-        <ProtectedSystems animationProgress={animationProgress} />
-        <ResilienceNetwork animationProgress={animationProgress} />
+        <>
+          <ThreeJSEarth
+            width={480}
+            height={480}
+            position="absolute"
+            left="50%"
+            top="50%"
+            opacity={animationProgress}
+            rotationSpeed={0.005}
+            className="translate-center"
+          />
+          <Canvas3D
+            showStars={true}
+            showControls={false}
+            camera={{ position: [0, 0, 12], fov: 60 }}
+          >
+            <InfrastructureShield animationProgress={animationProgress} />
+            <ProtectedSystems animationProgress={animationProgress} />
+            <ResilienceNetwork animationProgress={animationProgress} />
 
-        <pointLight position={[0, 0, 5]} intensity={2} color="#00ff88" />
-        <ambientLight intensity={0.4} />
-      </Canvas3D>
+            <pointLight position={[0, 0, 5]} intensity={2} color="#00ff88" />
+            <ambientLight intensity={0.4} />
+          </Canvas3D>
+        </>
       )}
 
       <TextOverlay position="bottom" isInView={isInView}>

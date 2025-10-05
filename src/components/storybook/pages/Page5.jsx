@@ -1,29 +1,10 @@
 import { useRef, useState, useEffect } from 'react';
-import { useFrame, useLoader } from '@react-three/fiber';
+import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import { TextureLoader } from 'three';
-import { Sphere } from '@react-three/drei';
 import { motion } from 'framer-motion';
 import Canvas3D from '../Canvas3D';
 import TextOverlay from '../TextOverlay';
-
-// Earth at the poles view
-function Earth() {
-  const earthRef = useRef();
-  const texture = useLoader(TextureLoader, '/sprites/026_earth_from_space.png');
-
-  useFrame(() => {
-    if (earthRef.current) {
-      earthRef.current.rotation.y += 0.003;
-    }
-  });
-
-  return (
-    <Sphere ref={earthRef} args={[2.5, 64, 64]} position={[0, 0, -3]}>
-      <meshStandardMaterial map={texture} />
-    </Sphere>
-  );
-}
+import ThreeJSEarth from '../effects/ThreeJSEarth';
 
 // Magnetic field lines guiding particles to poles
 function MagneticFieldLines({ animationProgress }) {
@@ -171,19 +152,30 @@ export default function Page5({ isInView }) {
   return (
     <>
       {isInView && (
-        <Canvas3D
-        showStars={true}
-        showControls={false}
-        camera={{ position: [0, 0, 10], fov: 60 }}
-      >
-        <Earth />
-        <MagneticFieldLines animationProgress={animationProgress} />
-        <FlowingParticles animationProgress={animationProgress} />
+        <>
+          <ThreeJSEarth
+            width={480}
+            height={480}
+            position="absolute"
+            left="50%"
+            top="50%"
+            opacity={animationProgress}
+            rotationSpeed={0.004}
+            className="translate-center"
+          />
+          <Canvas3D
+            showStars={true}
+            showControls={false}
+            camera={{ position: [0, 0, 10], fov: 60 }}
+          >
+            <MagneticFieldLines animationProgress={animationProgress} />
+            <FlowingParticles animationProgress={animationProgress} />
 
-        <pointLight position={[0, 5, 5]} intensity={2} color="#00d9ff" />
-        <pointLight position={[0, -5, 5]} intensity={2} color="#00d9ff" />
-        <ambientLight intensity={0.3} />
-      </Canvas3D>
+            <pointLight position={[0, 5, 5]} intensity={2} color="#00d9ff" />
+            <pointLight position={[0, -5, 5]} intensity={2} color="#00d9ff" />
+            <ambientLight intensity={0.3} />
+          </Canvas3D>
+        </>
       )}
 
       <TextOverlay position="bottom" isInView={isInView}>

@@ -1,0 +1,15 @@
+.threejs-earth-container {
+  pointer-events: none;
+}
+
+.threejs-earth-container.translate-y-center {
+  transform: translateY(-50%);
+}
+
+.threejs-earth-container.translate-center {
+  transform: translate(-50%, -50%);
+}
+
+.threejs-earth-container canvas {
+  display: block;
+}
