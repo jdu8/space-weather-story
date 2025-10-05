@@ -35,20 +35,39 @@ Output schema: { questions: Question[] }`;
 
     // Use official SDK
     const ai = new GoogleGenAI({ apiKey: env.GEMINI_API_KEY });
-    const model = 'gemini-2.5-flash';
+    const requestedModel = new URL(request.url).searchParams.get('model') || 'gemini-2.5-flash';
+    const fallbackModel = 'gemini-1.5-flash';
     const temperature = difficulty === 'easy' ? 0.4 : difficulty === 'medium' ? 0.6 : 0.8;
 
-    const response = await ai.models.generateContent({
-      model,
-      contents: [
-        { role: 'user', parts: [{ text: systemPrompt }] },
-        { role: 'user', parts: [{ text: userPrompt }] },
-        { role: 'user', parts: [{ text: 'Respond with JSON only.' }] },
-      ],
-      generationConfig: { temperature, maxOutputTokens: 1024 },
-    });
+    const makePromptString = () => `${systemPrompt}\n\n${userPrompt}\nRespond with JSON only.`;
 
-    const text = response.text();
+    let text = '';
+    let modelUsed = requestedModel;
+    try {
+      const response = await ai.models.generateContent({
+        model: requestedModel,
+        contents: makePromptString(),
+        generationConfig: { temperature, maxOutputTokens: 1024 },
+      });
+      text = response.text();
+    } catch (primaryErr) {
+      // Try fallback model for resilience
+      try {
+        const response = await ai.models.generateContent({
+          model: fallbackModel,
+          contents: makePromptString(),
+          generationConfig: { temperature, maxOutputTokens: 1024 },
+        });
+        text = response.text();
+        modelUsed = fallbackModel;
+      } catch (fallbackErr) {
+        console.error('Gemini error', { primary: String(primaryErr), fallback: String(fallbackErr) });
+        return new Response(
+          JSON.stringify({ error: 'Gemini request failed', details: String(primaryErr), fallbackError: String(fallbackErr) }),
+          { status: 502, headers: { 'content-type': 'application/json' } }
+        );
+      }
+    }
 
     // Attempt to parse JSON from the model response
     let parsed;
@@ -82,7 +101,7 @@ Output schema: { questions: Question[] }`;
       }))
       .filter((q) => q.question && q.options.length === 4);
 
-    return new Response(JSON.stringify({ questions }), {
+    return new Response(JSON.stringify({ questions, modelUsed }), {
       headers: { 'content-type': 'application/json' },
     });
   } catch (err) {
