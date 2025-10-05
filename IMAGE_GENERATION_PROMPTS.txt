@@ -1,0 +1,297 @@
+================================================================================
+SPACE WEATHER STORY - IMAGE GENERATION PROMPTS
+================================================================================
+
+================================================================================
+FIERY CHARACTER CONSISTENCY GUIDE
+================================================================================
+USE THESE TRAITS FOR ALL FIERY SPRITES:
+
+Core Visual Identity:
+- Character: Round, friendly fireball with cartoon Disney/Pixar style
+- Body: Glowing orange-red sphere with flame wisps/tendrils
+- Face: Large expressive eyes (dark with white highlights), cute smile
+- Flames: Flowing upward hair-like flames in orange/yellow/red gradient
+- Style: "Disney's Elemental" fire character aesthetic - warm, inviting, childlike
+- Color Palette: Bright orange (#FF6B35), golden yellow (#FFD700), warm red (#FF4757)
+- Glow: Soft yellow glow emanating from body
+- Size ratio: Arms/legs are smaller proportionally, head is large (cute character design)
+
+IMPORTANT: For consistency, mention "same character as reference" and describe:
+"Orange fireball character with big friendly eyes, cute smile, flame hair flowing upward, Disney Pixar style, warm and inviting appearance"
+
+================================================================================
+SECTION 1: FIERY CHARACTER SPRITES (6 images)
+================================================================================
+
+001_fiery_saying_hi.png
+SHORT PROMPT: Cute orange fireball character waving hello, Disney Pixar style, friendly smile, flame hair, speech bubble "Hi!", transparent background
+DETAILED: Cartoon fire character inspired by Disney's Elemental. Round orange-red glowing body (bright orange #FF6B35 core). Large expressive dark eyes with white sparkle highlights. Wide friendly smile. Flowing upward flame "hair" in orange/yellow/red gradient. One arm raised in enthusiastic wave gesture. Small speech bubble with "Hi!" text. Flames create a warm, inviting glow around the character. Style: child-friendly, playful, Pixar-quality 3D render aesthetic but 2D sprite. Transparent PNG background. Front-facing view. Body proportions: large head, small limbs (chibi-style cuteness).
+
+002_fiery_flying.png
+SHORT PROMPT: Orange fireball character flying horizontally, Disney Pixar style, flame trail behind, determined expression, transparent background
+DETAILED: Same orange fireball character from image 001, now in flying pose. Body tilted forward slightly (15-20 degrees) to show motion. Arms stretched forward in Superman-style flight pose or one arm forward/one back for dynamic motion. Flame hair streaming backward due to speed. Determined but happy expression with squinted eyes showing effort. Trailing flame particles/wisps behind the character showing movement through space. Warm orange glow intensified on the leading edge. Style: Disney Pixar fire character. Transparent PNG background. Side profile or 3/4 view. Motion lines optional but keep subtle.
+
+003_fiery_happy.png
+SHORT PROMPT: Orange fireball character jumping with joy, Disney Pixar style, big smile, arms raised in celebration, transparent background
+DETAILED: Same orange fireball character in joyful celebration pose. Arms raised high above head in triumphant V-shape or hands clasped together in excitement. Biggest, widest smile possible with eyes closed in happy arcs (^_^) or sparkling wide open. Flame hair extra animated with upward burst of excitement. Small jump pose with slight squash-and-stretch animation principle (bottom of body slightly compressed to show bounce). Glowing particles of joy around the character. Bright, energetic color saturation. Style: Disney Pixar fire character. Transparent PNG background. Front-facing view.
+
+004_fiery_confused.png
+SHORT PROMPT: Orange fireball character looking sad and confused, Disney Pixar style, tilted head, puzzled expression, slightly dimmer flames, transparent background
+DETAILED: Same orange fireball character showing confusion and sadness. Head tilted to one side (questioning pose). Large eyes looking upward or to the side with worried/sad expression - eyebrows curved downward in concern. Small frown or slight pout. One hand/flame tendril touching face or chin in "thinking" gesture. Flame hair slightly drooped or less energetic than happy versions - flames curve downward at tips. Overall glow slightly dimmed (less saturated orange, more muted). Small question mark symbol above head optional. Style: Disney Pixar fire character, maintaining cuteness even when sad. Transparent PNG background. Front or 3/4 view.
+
+005_fiery_dancing.png
+SHORT PROMPT: Orange fireball character dancing gracefully, Disney Pixar style, flowing movement, aurora lights in background, joyful expression, transparent background
+DETAILED: Same orange fireball character in dynamic dance pose. Body curved in S-shape showing fluid movement. Arms outstretched gracefully to sides or one up/one down in ballet-like pose. Flame hair flowing in elegant curves following the dance motion. Eyes closed peacefully or half-open with serene smile. Surrounded by subtle green and purple aurora light wisps that complement (not overpower) the orange character. Character glows warmly against the cooler aurora colors. Motion trails of flame particles showing the dance path. Style: Disney Pixar fire character. Transparent PNG background with aurora accents. Dynamic 3/4 view showing movement.
+
+006_fiery_partnering.png
+SHORT PROMPT: Orange fireball character shaking hands with astronaut, Disney Pixar style, friendly collaboration, futuristic space setting, transparent background
+DETAILED: Same orange fireball character in partnership pose with human astronaut (modern sleek spacesuit, white/silver with blue accents). Fiery extending flame tendril as "hand" to shake astronaut's gloved hand. Both characters smiling - Fiery with characteristic big friendly smile, astronaut visible through clear helmet visor also smiling. Fiery's glow reflecting warmly on astronaut's suit. Small energy particles floating between them showing connection/collaboration. Futuristic but friendly atmosphere. Background: subtle orbital station elements or energy collector machinery (blurred/transparent). Style: Disney Pixar fire character meeting realistic-but-friendly space explorer. Transparent PNG background. Side view showing the handshake clearly.
+
+================================================================================
+SECTION 2: TECHNOLOGY OBJECTS (9 images)
+================================================================================
+
+007_telegraph_pole.png
+SHORT PROMPT: Vintage wooden telegraph pole with ceramic insulators and wires, 1859 era, sepia tone, isolated object, transparent background
+DETAILED: Historical telegraph pole from 1850s. Tall wooden pole (weathered brown wood texture). Multiple horizontal crossbeams with white ceramic insulator knobs. Black telegraph wires strung between insulators. Realistic but slightly stylized to match storybook aesthetic. Warm sepia or muted brown color palette. Clean isolated object view. No background scenery. Style: historical illustration, educational textbook quality. Transparent PNG background. Straight-on side view showing pole structure clearly.
+
+008_telegraph_sparking.png
+SHORT PROMPT: Vintage telegraph pole with electrical sparks and arcs, glowing orange lightning, fire starting, dramatic 1859 Carrington Event, transparent background
+DETAILED: Same telegraph pole as 007 but now with dramatic electrical activity. Bright yellow-white electrical arcs jumping between wires and insulators. Orange-red sparks cascading down the pole. Small flames starting on wooden crossbeam. Glowing hot spots on ceramic insulators. Wires vibrating/wavy from electrical surge. Dramatic lighting with dark shadows and bright electrical glow. Energy particles in air. Color palette: dark wood, bright electric white-blue, warning orange-red flames. Style: dramatic but child-friendly (not scary). Transparent PNG background. Angled view showing action.
+
+009_satellite_tumbling.png
+SHORT PROMPT: Modern communications satellite tumbling out of control in space, solar panels bent, sparks, damaged, realistic but stylized
+DETAILED: Contemporary satellite in distress. Boxy main body (metallic gray/silver) with "NASA" or generic space agency logo. Blue solar panels extended but one bent/broken at angle. Small satellite dish antenna askew. Visible scorch marks or electrical damage on surface. Small sparks or electrical arcs from damaged components. Tumbling motion shown by motion blur or rotation. Small debris particles floating nearby. Realistic satellite design but slightly stylized for clarity. Dark space background or transparent. Cool color palette: grays, blues, with orange damage spots. Style: educational illustration, semi-realistic. Transparent PNG background preferred.
+
+010_satellite_hardened.png
+SHORT PROMPT: Modern protected satellite with reinforced shielding, glowing protective barrier, clean and operational, futuristic design
+DETAILED: Advanced modern satellite showing protection upgrades. Similar structure to 009 but pristine condition. Metallic body with visible reinforced panels (rivets, extra plating). Solar panels perfect and deployed. Gold/bronze colored radiation shielding visible on components. Subtle blue-white energy shield effect surrounding the satellite (semi-transparent dome). Small indicator lights showing "active/operational" status in green. Confident, strong appearance. Clean and high-tech. Color palette: silver-gray metals, gold shielding, blue energy field, green status lights. Style: futuristic but realistic satellite design. Transparent PNG background. 3/4 view showing details.
+
+011_power_transformer.png
+SHORT PROMPT: Large electrical power transformer on platform, industrial, gray metal with cooling fins, high voltage warning signs, realistic
+DETAILED: Industrial electrical transformer unit. Large rectangular/cylindrical metal housing in gray or green utility color. Cooling fins/radiator sections visible on sides. High voltage warning signs (yellow triangle with black lightning bolt). Porcelain insulators on top with thick black power cables connecting. Metal platform/base with safety railing. Realistic industrial equipment but clean and clear for educational purposes. Daytime lighting, neutral background or transparent. Style: technical illustration, educational. Transparent PNG background preferred. Angled view showing 3D structure.
+
+012_transformer_exploding.png
+SHORT PROMPT: Electrical transformer exploding with bright arcs, orange flames, sparks flying, dramatic power failure, transparent background
+DETAILED: Same transformer as 011 but in critical failure. Bright white-blue electrical arcs erupting from top insulators. Orange-yellow flames shooting from housing vents. Shower of yellow-orange sparks cascading around the unit. Visible metal stress/cracking on housing. Intense bright glow from inside. Small smoke wisps. Dramatic lighting - dark shadows with bright explosive highlights. Energy particles in air. Warning lights flashing red. Action/drama but not terrifying (educational, not horror). Color palette: dark grays, electric white-blue, fire orange-yellow. Transparent PNG background. Dynamic angled view.
+
+013_gps_icon_error.png
+SHORT PROMPT: GPS satellite navigation icon with red X or error symbol, glitching digital display, "signal lost" warning
+DETAILED: Digital GPS interface icon design. Classic GPS location pin symbol (teardrop shape) in blue or green, now with red X overlay or diagonal "no signal" line through it. Glitch effect - pixelated edges, digital artifacts, scan lines. "SIGNAL LOST" or "NO GPS" text in red warning font. Optional: small satellite icon crossed out. Dark screen background or transparent. Modern UI design aesthetic. Color palette: blues/greens for normal GPS, red for error state, white text. Style: digital interface, modern app design. Transparent PNG background. Flat 2D icon design, front view.
+
+014_space_station_iss.png
+SHORT PROMPT: International Space Station realistic depiction, large solar panels, detailed modules, orbiting Earth, space background
+DETAILED: Accurate representation of ISS (International Space Station). Central connected modules (white/silver cylinders). Large blue solar panel arrays extended on both sides. Gold thermal blankets visible on some sections. Cargo modules docked. Robotic arm visible. Earth's blue atmosphere in background (optional) or transparent background. Realistic but clean and clear. Daytime lighting from the Sun. Color palette: white-silver modules, deep blue solar panels, gold insulation, black space. Style: realistic space illustration, educational/NASA quality. Transparent or space background. Angled 3/4 view showing iconic ISS structure.
+
+015_energy_collector.png
+SHORT PROMPT: Futuristic orbital energy harvester, large electromagnetic collectors, glowing energy fields, sleek sci-fi design, realistic technology concept art
+DETAILED: Original futuristic space station design for energy collection. Large circular or hexagonal collection arrays (think satellite dish meets solar panel). Glowing blue-purple electromagnetic field visualizations around collectors. Central hub/station module (white/silver). Multiple collector arms extending outward. Visible energy flow pathways (glowing lines/conduits). Advanced but believable technology design. Clean, optimistic sci-fi aesthetic (not dystopian). Small scale indicators showing this is massive structure. Color palette: silver-white station, blue-purple energy fields, gold accents. Style: NASA concept art, realistic sci-fi, The Martian/Interstellar aesthetic. Transparent or space background. Angled view showing scale and structure.
+
+================================================================================
+SECTION 3: HUMAN CHARACTERS (8 images)
+================================================================================
+
+016_viking_silhouette.png
+SHORT PROMPT: Viking warrior silhouette looking up at aurora sky, horned helmet, shield and axe, dramatic backlit pose, Nordic setting
+DETAILED: Strong silhouette of Viking warrior in profile or 3/4 view. Standing on rocky outcrop or hill. Head tilted back looking up at sky in wonder. Iconic horned helmet (artistic liberty for recognition, even if historically inaccurate). Circular wooden shield with iron boss visible. Battle axe or sword in hand, tip resting on ground. Long beard and fur cloak silhouette. Backlit by aurora glow - figure is dark silhouette with green-purple aurora light creating rim lighting. Dramatic, mythic atmosphere. Color palette: black silhouette, green-purple aurora backlighting. Style: dramatic storybook illustration. Transparent PNG or aurora background.
+
+017_inuit_family.png
+SHORT PROMPT: Inuit family in traditional winter clothing watching aurora, warm scene, mother father and child, snowy landscape, northern lights overhead
+DETAILED: Three figures in traditional Inuit winter clothing (parkas with fur-lined hoods). Mother, father, and young child. Child pointing up at the aurora in wonder. Parents standing close together, looking up peacefully. Visible faces showing awe and happiness (brown skin tones, warm expressions). Clothing in browns, grays, and natural colors with fur trim. Gentle falling snow optional. Green aurora light illuminating their faces from above. Warm, family-friendly atmosphere. Cultural respect and accuracy important. Color palette: earth tones for clothing, green aurora glow, white snow. Style: warm storybook illustration, respectful cultural representation. Arctic background or transparent.
+
+018_native_american_elder.png
+SHORT PROMPT: Native American elder in traditional dress watching aurora, peaceful contemplation, spiritual connection, respectful cultural depiction
+DETAILED: Single elder figure (could be male or female) in traditional clothing appropriate to Northern Plains tribes who observe aurora. Seated or standing in contemplative pose. Traditional dress with respect and research - avoid stereotypes. Long hair, weathered face showing wisdom and peace. Looking up at aurora with spiritual reverence. Hands in prayer or contemplative gesture optional. Aurora green-purple light reflecting on face. Respectful, dignified portrayal showing cultural connection to natural phenomena. Color palette: earth tones, leather browns, aurora green, night blues. Style: respectful cultural illustration, educational quality. Prairie/northern landscape or transparent background.
+
+019_japanese_observer.png
+SHORT PROMPT: Person in traditional Japanese clothing observing aurora, Heian period style, elegant kimono, looking up in wonder, cultural respect
+DETAILED: Figure in traditional Japanese attire (Heian period or Edo period). Elegant kimono with subtle patterns. Hair styled in traditional manner (topknot for male, long for female). Standing under rare low-latitude aurora event. Posture shows respect and wonder - hands together or one hand raised in awe. Facial expression: serene amazement. Aurora displays rare red colors (historically accurate for low-latitude events). Japanese aesthetic - elegant, peaceful, contemplative. Color palette: deep kimono colors (indigo, burgundy), red aurora, night sky. Style: respectful cultural depiction, ukiyo-e influenced but modern illustration. Transparent or minimal background.
+
+020_scientist_observing.png
+SHORT PROMPT: Modern scientist at computer monitors showing solar data, NASA control room, focused expression, diverse representation, technology displays
+DETAILED: Contemporary scientist (diverse representation - suggest woman of color for STEM representation) at workstation. Multiple computer monitors showing solar imagery (Sun photos, data graphs, magnetic field visualizations). Wearing professional casual clothes (button-up shirt or lab coat). Focused, engaged expression. One hand pointing at screen, other on keyboard. Headset for communications optional. Modern NASA/NOAA control room atmosphere. Screens glowing with colorful data. Professional but approachable. Color palette: cool blues and whites from monitors, natural skin tones, professional clothing colors. Style: modern editorial illustration, STEM career representation. Background: control room or transparent.
+
+021_engineer_working.png
+SHORT PROMPT: Electrical engineer with hardhat and tools, working on power grid equipment, safety vest, confident pose, diverse representation
+DETAILED: Field engineer (diverse representation recommended) wearing safety equipment. Yellow or orange hardhat, high-visibility safety vest over work clothes. Tool belt with equipment. Working with electrical panel or transformer controls. Safety gloves, protective eyewear. Confident, competent pose - maybe checking tablet or clipboard with technical diagrams. Professional and capable. Outdoor utility setting or transparent. Color palette: yellow/orange safety gear, blue work clothes, metallic equipment, natural skin tones. Style: positive STEM career representation, modern editorial illustration. Realistic but friendly.
+
+022_astronaut_sheltering.png
+SHORT PROMPT: Astronaut inside ISS module in protective posture, modern spacesuit, alert but calm expression, safety protocols, professional
+DETAILED: Astronaut in modern ISS interior. Wearing partial spacesuit or flight suit with mission patches. Inside cylindrical station module with visible equipment, cables, and hatches. In protective shelter area or moving toward shielded section. Alert but professional expression - trained response, not panic. Holding onto handrails in zero-gravity pose. Floating posture with bent knees. Small laptop or tablet showing radiation warning. Competent and prepared atmosphere. Color palette: white-gray ISS interior, blue flight suit, colorful mission patches, indicator lights. Style: realistic space documentary quality, educational. ISS interior or transparent background.
+
+023_child_dreaming.png
+SHORT PROMPT: Diverse child looking up at stars with wonder, casual modern clothes, hopeful expression, backpack or science book, inspirational pose
+DETAILED: Young child (age 8-12, diverse representation - any ethnicity) looking up at night sky with awe and inspiration. Modern casual clothes (jeans, t-shirt, sneakers). Maybe holding science book, tablet, or wearing small backpack. Face illuminated by starlight from above, showing wonder and ambition. Big hopeful smile or serious determined expression. Stars reflected in eyes. Pointing up at sky or reaching upward. Optimistic, "future scientist" energy. Relatable, everyday kid. Color palette: natural clothing colors, warm skin tones, cool blue starlight. Style: inspirational illustration, "you can do this" energy. Night sky or transparent background.
+
+================================================================================
+SECTION 4: BACKGROUND IMAGES (12 images)
+================================================================================
+
+024_sun_surface_closeup.jpg
+SHORT PROMPT: Photorealistic Sun surface close-up, granulation texture, sunspots, active regions, NASA quality solar imagery
+DETAILED: Ultra-realistic solar surface photography style. Granulation cells visible (convection patterns). Mix of bright photosphere (yellow-white) and darker regions. Sunspots with dark umbra and lighter penumbra. Solar prominences or filaments at edges. Active region with magnetic complexity. Hot, energetic appearance. Color palette: bright yellow-white, golden yellow, darker orange, black sunspots. Scientific accuracy but visually dramatic. Style: NASA SDO (Solar Dynamics Observatory) photography aesthetic. Suitable for texture mapping on 3D sphere. 4K resolution quality. Full bleed, no transparency needed.
+
+025_deep_space_bg.jpg
+SHORT PROMPT: Deep space star field, thousands of stars, cosmic dust clouds, nebula hints, dark space, realistic astronomy photography
+DETAILED: Dense star field as seen in deep space. Thousands of stars of varying brightness and sizes. Subtle cosmic dust clouds (dark nebulae). Small hints of distant nebulae in blues/purples (very subtle, not dominant). Black space background with stars creating depth (closer stars brighter, distant stars dimmer). Milky Way dust band optional. Realistic astronomical photography aesthetic. No planets or specific objects - just pure star field for versatile background use. Color palette: black space, white-blue-yellow stars, subtle purple-blue nebula hints. Style: Hubble Space Telescope aesthetic. High resolution. Full bleed image.
+
+026_earth_from_space.jpg
+SHORT PROMPT: Beautiful Earth view from orbit, blue oceans, white clouds, green continents, sunrise terminator line, realistic satellite photography
+DETAILED: Stunning Earth portrait from orbital perspective. Predominantly blue oceans with white cloud formations. Visible continents (choose recognizable view - perhaps Atlantic with Americas and Africa visible, or Pacific). Sunrise or sunset terminator line showing day-night transition with golden-orange glow. Thin blue atmosphere visible at limb. Realistic Earth colors - rich ocean blues, cloud whites, brown-green continents. Hurricane or weather system optional for visual interest. Style: NASA ISS photography, Blue Marble quality. Photorealistic. Inspiring and beautiful. Color palette: ocean blues, cloud whites, land greens/browns, atmosphere light blue. High resolution. Full bleed.
+
+027_magnetosphere_visualization.png
+SHORT PROMPT: Earth's magnetic field visualization, blue field lines, transparent overlay, solar wind interaction, scientific diagram style
+DETAILED: Scientific visualization of Earth's magnetosphere. Earth in center (small, can be simple globe). Blue curved magnetic field lines flowing from south pole to north pole. Field lines compressed on sunward side (left), extended in tail on opposite side (right). Solar wind particles (yellow-orange dots) flowing from left, deflecting around field. Bow shock wave visible where solar wind meets magnetosphere. Van Allen radiation belts shown as glowing zones. Semi-transparent to use as overlay. Educational diagram aesthetic. Color palette: blue magnetic fields, yellow-orange solar wind, purple radiation belts. Style: NASA scientific visualization, educational diagram. Transparent background. Clear labels optional.
+
+028_viking_village_night.jpg
+SHORT PROMPT: Nordic Viking village at night under aurora borealis, wooden longhouses, snow, torches, peaceful winter scene, historical setting
+DETAILED: Historical Nordic settlement night scene. Several wooden longhouses with thatched roofs, smoke rising from roof holes. Snow-covered ground and surrounding pine trees. Warm torch light from doorways and outdoor torches (orange glow). Distant mountains silhouetted against sky. Spectacular green aurora borealis dominating sky with purple accents. Stars visible. Peaceful, mystical atmosphere. Nobody visible or tiny silhouettes only (focus on setting). Color palette: dark blue night, white snow, orange torch light, green-purple aurora. Style: atmospheric historical illustration, fantasy book cover quality. Full bleed image.
+
+029_arctic_tundra.jpg
+SHORT PROMPT: Arctic tundra landscape at night, snow and ice, aurora borealis overhead, peaceful wilderness, no human structures
+DETAILED: Vast arctic wilderness. Rolling snow-covered tundra extending to horizon. Patches of ice formations or small frozen lake. Sparse vegetation barely visible through snow. Distant mountains or glaciers on horizon. Sky dominated by vibrant aurora borealis in green with hints of purple and pink. Stars visible where aurora isn't bright. Cold, pristine, untouched nature. Peaceful and majestic. Color palette: white-blue snow, darker blue ice, green-purple-pink aurora, deep blue-black sky. Style: nature photography, National Geographic quality, atmospheric. Full bleed image.
+
+030_ancient_japan_night.jpg
+SHORT PROMPT: Traditional Japanese landscape at night, pagoda or temple, cherry blossoms, rare red aurora, cultural setting, peaceful atmosphere
+DETAILED: Traditional Japanese scene. Classic pagoda or temple structure silhouetted against night sky. Cherry blossom trees (sakura) in bloom, petals glowing in aurora light. Stone lanterns providing subtle ground lighting. Perhaps small bridge over stream or garden pond (reflecting aurora). Rare red-colored aurora phenomenon in sky (historically accurate for low-latitude events). Mountains in background. Serene, spiritual atmosphere. Color palette: dark blue night, white-pink cherry blossoms, warm orange lantern light, red aurora, black silhouettes. Style: Japanese woodblock print influenced, atmospheric illustration. Full bleed image.
+
+031_native_american_plains.jpg
+SHORT PROMPT: Great Plains landscape at night under aurora, grasslands, distant hills, starry sky with aurora, respectful cultural setting
+DETAILED: Northern Great Plains nighttime vista. Rolling grasslands extending to horizon. Tall prairie grass moving slightly in breeze. Distant hills or badlands formations silhouetted. Massive sky overhead with aurora borealis in green and purple (northern plains do see aurora). Stars visible in clear areas. Perhaps single sacred site element (medicine wheel stones, respectful depiction) or completely natural landscape. Vast, open, spiritual feeling. Color palette: dark blue-purple night sky, golden-green grass, green-purple aurora, black distant hills. Style: respectful landscape photography, nature documentary quality. Full bleed image.
+
+032_city_skyline_night.jpg
+SHORT PROMPT: Modern city skyline at night, skyscrapers with lights, power grid visible, urban infrastructure, contemporary setting
+DETAILED: Contemporary metropolitan skyline. Mix of skyscrapers with illuminated windows (some lights on, some off - realistic pattern). Visible infrastructure - power lines, transformer stations in foreground or middle ground. City lights in warm yellow-orange. Dark night sky above. Could include identifiable but generic city features (don't copy specific city exactly). Sense of electrical dependency - all those lights need power. Modern, bustling, technological civilization. Color palette: dark blue-black night, warm yellow-orange city lights, cool blue-white office lights. Style: urban photography, architectural. Full bleed image.
+
+033_power_plant.jpg
+SHORT PROMPT: Electrical power substation, transformers and equipment, high voltage lines, industrial facility, clean industrial photography
+DETAILED: Electrical utility substation facility. Multiple large transformers and switching equipment. High-voltage transmission towers and lines. Insulators, circuit breakers, and industrial electrical infrastructure. Fenced secure facility. Clean, well-maintained (not rusty or dystopian). Daytime with neutral lighting or early evening. Educational view of power infrastructure. Shows complexity and importance of electrical grid. Color palette: gray-silver metals, green utility equipment, blue sky, yellow safety markings. Style: industrial photography, utility company documentation, educational. Full bleed image.
+
+034_mission_control.jpg
+SHORT PROMPT: NASA mission control room, multiple screens showing data, computer workstations, modern space operations center, professional environment
+DETAILED: Contemporary space mission control facility (NASA, NOAA, or similar). Rows of computer workstations with multiple monitors. Large wall displays showing satellite imagery, solar data, orbital tracks. Professional but not sterile - lived-in workspace. Coffee cups, notebooks, organized chaos. Maybe 1-2 blurred people working (focus on environment). Modern technology but realistic (not sci-fi). Screens showing relevant space weather data. Color palette: cool blues and whites from monitors, neutral gray workstations, colorful data displays. Style: documentary photography, professional workspace. Full bleed image.
+
+035_future_city.jpg
+SHORT PROMPT: Futuristic city year 2075, clean energy infrastructure, orbital stations visible, optimistic sci-fi, sustainable technology, hopeful future
+DETAILED: Optimistic future cityscape (year 2075). Clean, sustainable architecture - green buildings, vertical gardens, solar integration. Sleek but human-scale (not dystopian megastructures). Visible clean energy infrastructure - wind turbines in distance, solar roofs. Sky shows orbital energy collector stations (small, recognizable). Flying vehicles optional but keep minimal. Day or twilight lighting. People-friendly spaces, parks integrated. Hopeful, bright future aesthetic (The Jetsons meets solarpunk). Color palette: greens from vegetation, white-silver clean architecture, blue sky, golden sunlight. Style: optimistic concept art, utopian sci-fi illustration. Full bleed image.
+
+================================================================================
+SECTION 5: VISUAL EFFECTS ASSETS (12 images)
+================================================================================
+
+036_aurora_green_curtain.png
+SHORT PROMPT: Green aurora borealis curtain, flowing vertical waves, transparent PNG, natural aurora photography style
+DETAILED: Realistic green aurora curtain formation. Vertical flowing pattern like fabric or curtain in wind. Bright green (#00FF88) at intense regions, fading to yellow-green at edges. Wavy, organic shape - not straight. Multiple layers showing depth. Transparent PNG with alpha channel - aurora visible, space background transparent. Natural aurora physics - brighter at bottom, fainter at top. Soft edges, glowing effect. Can be overlaid on dark backgrounds. Size: tall vertical orientation. Color palette: bright green core, yellow-green edges, fade to transparent. Style: natural aurora photography. Transparent PNG, vertical orientation.
+
+037_aurora_purple_curtain.png
+SHORT PROMPT: Purple aurora borealis curtain, flowing vertical waves, transparent PNG, rare high-altitude aurora style
+DETAILED: Purple aurora curtain (higher altitude oxygen emission). Similar flowing curtain structure to green aurora but in purple-magenta colors (#B47AFF to #FF00FF range). Vertical flowing waves. Slightly rarer, more mystical appearance than green. Can mix with hints of red at edges. Transparent PNG with alpha channel. Soft glowing edges. Layered translucent appearance. Can be combined with green aurora for multi-colored displays. Size: tall vertical orientation. Color palette: purple-magenta core, pink-red edges, fade to transparent. Style: natural aurora photography. Transparent PNG, vertical orientation.
+
+038_aurora_red_curtain.png
+SHORT PROMPT: Red aurora borealis curtain, rare intense display, flowing vertical waves, transparent PNG, dramatic high-energy aurora
+DETAILED: Rare red aurora curtain (very high altitude, intense solar activity). Deep red (#FF4757) to orange-red colors. Flowing curtain structure, less common than green/purple. Indicates powerful geomagnetic storm. Dramatic, intense appearance. Vertical orientation with horizontal flowing waves. Transparent PNG with alpha channel. Softer glow than green aurora - more diffuse. Can appear during major events like Carrington Event. Size: tall vertical orientation. Color palette: deep red core, orange-red edges, fade to transparent. Style: natural aurora photography, dramatic storm conditions. Transparent PNG, vertical orientation.
+
+039_aurora_particles.png
+SHORT PROMPT: Glowing particle texture, small dots for aurora shimmer effect, various sizes, transparent PNG, subtle glow
+DETAILED: Small particle texture sheet for aurora shimmer effects. Collection of various-sized glowing dots and tiny streaks. Each particle with soft glow/blur. Sizes ranging from 2-20 pixels. Some circular, some slightly elongated. Can be in white (to be tinted) or subtle green-purple already. Transparent PNG with alpha channel. Arranged randomly on texture sheet for particle system use. Soft edges, luminous quality. Can be used as sprite particles in animation. Color palette: white with glow, or soft aurora colors. Style: particle system texture, game asset style. Transparent PNG, square texture sheet.
+
+040_magnetic_field_line.png
+SHORT PROMPT: Blue curved magnetic field line, glowing trail, transparent PNG, smooth flowing arc, scientific visualization style
+DETAILED: Single curved line representing magnetic field line. Smooth flowing arc shape. Blue color (#00D9FF) with gradient - brighter in center, fading at edges. Glowing effect. Can be duplicated and arranged to create field patterns. Transparent PNG with alpha channel. Clean, scientific appearance. Width consistent along length with soft glow extending beyond core line. Length: moderate, can be scaled. Style: scientific visualization, educational diagram element. Color palette: cyan-blue core, lighter blue glow, transparent background. Transparent PNG, curved line shape.
+
+041_plasma_glow.png
+SHORT PROMPT: Orange-yellow plasma glow texture, radial gradient, soft edges, transparent PNG, energy effect
+DETAILED: Radial gradient glow texture for plasma effects. Center: bright yellow-white (#FFFACD). Gradually transitioning to orange (#FF8844) in middle. Fading to transparent at edges. Circular/spherical appearance. Soft, diffuse edges - no hard boundaries. Can be used as additive blend overlay. Size: square, centered glow. Suitable for light sources, energy effects, Fiery's glow. Warm, energetic feeling. Style: VFX texture, game particle effect. Color palette: white center, yellow inner, orange outer, fade to transparent. Transparent PNG, square, radial gradient.
+
+042_spark_effect.png
+SHORT PROMPT: Electrical spark and lightning bolt texture, bright white-blue, branching arcs, transparent PNG, energy discharge
+DETAILED: Electrical spark/lightning texture. Bright central bolt (white-blue) with branching tendrils. Jagged, energetic paths. Multiple small arcs and offshoots. Glowing intensely at core. Can be rotated and placed randomly for electrical effects. Transparent PNG with alpha channel. Suitable for telegraph sparking, transformer explosions, satellite damage effects. Very bright - should read as "electrical energy." Style: VFX lightning effect, electrical discharge photography. Color palette: white-blue bright core, electric blue branches, fade to transparent. Transparent PNG, irregular lightning shape.
+
+043_energy_beam.png
+SHORT PROMPT: Beam of light energy, glowing cylinder, blue-white gradient, transparent PNG, sci-fi energy transfer effect
+DETAILED: Cylindrical energy beam texture. Can be stretched vertically for long beams. Center: bright blue-white core. Gradient to softer blue at edges. Transparent at outer edges for blending. Gentle pulse/wave pattern along length (subtle). Sci-fi energy transfer aesthetic. Used for future energy collectors beaming power. Smooth, clean, optimistic technology feel. Style: sci-fi VFX, clean energy visualization. Color palette: white-blue center, cyan edges, fade to transparent. Transparent PNG, vertical beam orientation with horizontal seamless tiling.
+
+044_shield_effect.png
+SHORT PROMPT: Protective energy shield, hexagonal pattern, blue semi-transparent, geometric force field, sci-fi defense barrier
+DETAILED: Energy shield visualization. Hexagonal or honeycomb pattern (like force field cells). Blue translucent material (#00D9FF at ~30% opacity). Subtle glow at edges of each hexagon cell. Slightly brighter impact ripples optional. Curved surface suggestion (spherical shield around object). Clean, high-tech appearance. Protective but not aggressive. Used for hardened satellite shields. Style: sci-fi force field, holographic interface aesthetic. Color palette: cyan-blue translucent, brighter blue edges, transparent background. Transparent PNG, geometric pattern, slight curvature.
+
+045_star_particle.png
+SHORT PROMPT: Small star twinkle texture, four-point star shape, white glow, transparent PNG, classic starfield particle
+DETAILED: Classic four-point star twinkle shape. Small size (suitable for particle systems). Bright white center. Four symmetric points extending outward with glow. Soft edges, luminous quality. Can be duplicated at various sizes for starfield depth. Transparent PNG with alpha channel. Simple, clean design. Can be tinted colors for variety. Style: classic astronomy illustration star, particle system asset. Color palette: white with glow, transparent background. Transparent PNG, small square, centered star shape.
+
+046_dust_particle.png
+SHORT PROMPT: Space dust particle texture, small irregular specks, gray-white, various sizes, transparent PNG, cosmic debris
+DETAILED: Collection of small dust particle shapes. Irregular specks, not uniform circles. Various sizes (tiny to small). Subtle gray-white coloring (#CCCCCC to #FFFFFF). Some slightly blurred, some sharper. Arranged on texture sheet for particle system use. Very subtle - background element, not dominant. Can represent cosmic dust, space debris, or atmospheric particles. Transparent PNG with alpha channel. Style: subtle particle texture, realistic space dust. Color palette: gray to white, mostly transparent. Transparent PNG, square texture sheet with multiple particles.
+
+047_fire_particle.png
+SHORT PROMPT: Small flame ember particle, orange-yellow glow, teardrop shape, transparent PNG, fire effect element
+DETAILED: Individual flame particle/ember. Teardrop or elongated shape pointing upward. Gradient from bright yellow-white at base to orange-red at tip. Soft glow surrounding particle. Small size suitable for particle systems. Transparent PNG with alpha channel. Can be used for Fiery's trail, flame effects, energy bursts. Warm, energetic appearance. Multiple can be combined for larger effects. Style: fire VFX particle, game effect asset. Color palette: white-yellow base, orange middle, red tip, glow fade to transparent. Transparent PNG, small, vertical teardrop orientation.
+
+================================================================================
+SECTION 6: UI/GRAPHIC ELEMENTS (11 images)
+================================================================================
+
+048_earth_magnetic_field_diagram.png
+SHORT PROMPT: Earth cross-section diagram showing magnetic field, labeled north-south poles, field lines, educational illustration, clean scientific diagram
+DETAILED: Educational scientific diagram. Earth shown in cross-section (cut in half vertically). Core visible inside (orange-red inner core, yellow outer core). Mantle and crust layers. Blue magnetic field lines flowing from South Pole (bottom) through Earth to North Pole (top), arcing back outside through space. Arrows showing field direction. Simple labels: "North Magnetic Pole," "South Magnetic Pole," "Magnetic Field Lines," "Core." Clean, textbook quality. Color palette: blue Earth surface, orange-yellow core layers, blue field lines, black arrows. Style: educational diagram, science textbook. Transparent or white background. Clear, readable labels.
+
+049_cme_formation_diagram.png
+SHORT PROMPT: Diagram showing CME formation on Sun, magnetic field loop, plasma eruption, labeled steps, educational illustration, simple scientific explanation
+DETAILED: Step-by-step scientific diagram of CME formation. Sun shown as yellow-orange sphere (left side). Sequence shown left to right: 1) Magnetic field loop emerging from Sun surface (blue curved line), 2) Field twisting and storing energy (distorted loop), 3) Loop breaking/reconnecting (bright flash at break point), 4) Plasma ejection (orange cloud of material shooting outward). Simple arrows showing progression. Labels: "Magnetic Loop," "Stored Energy," "Reconnection," "CME Eruption." Clean, educational style. Color palette: yellow-orange Sun, blue magnetic fields, bright white energy, orange-red plasma. Style: educational diagram, NASA infographic quality. White or transparent background.
+
+050_energy_collector_diagram.png
+SHORT PROMPT: Futuristic energy harvesting diagram, space collector, electromagnetic field capture, energy flow arrows, labeled technical illustration, sci-fi science
+DETAILED: Technical diagram of future energy harvesting concept. Orbital collector station (simplified). Incoming CME plasma shown as orange particles from left. Blue electromagnetic collection fields (curved lines) channeling particles into collector arrays. Green arrows showing captured energy flowing to storage modules. Energy beam (blue-white) transmitting power toward Earth (small, in distance). Labels: "Incoming Solar Plasma," "EM Collection Field," "Energy Converter," "Power Transmission." Clean technical illustration style. Color palette: orange plasma, blue EM fields, green energy flow, white station. Style: technical concept diagram, NASA concept art. White or transparent background. Clear labels and arrows.
+
+051_early_warning_system_diagram.png
+SHORT PROMPT: Space weather satellite network diagram, Sun to Earth, monitoring satellites, data flow, early warning system illustration, educational infographic
+DETAILED: Infographic showing space weather monitoring network. Left: Sun (yellow-orange). CME emerging (orange cloud). Middle: Multiple satellites positioned between Sun and Earth - SOHO at L1 point, SDO near Earth. Right: Earth (blue). Dotted lines showing satellite data transmissions to ground stations. Time labels: "CME Detected: T-0," "Alert Sent: T+8 min," "CME Arrival: T+18 hours." Simple satellite icons. Communication signals shown as radio waves. Color palette: yellow Sun, orange CME, gray satellites, blue Earth, green data signals. Style: educational infographic, clean diagram. White or transparent background.
+
+052_year_1859_title.png
+SHORT PROMPT: Stylized "1859" title text, historical vintage font, ornate Victorian style, sepia tones, decorative historical title card
+DETAILED: Title card text reading "1859" in large historical font. Victorian era typography - ornate serifs, elegant curves. Subtle decorative flourishes or border elements (scrollwork, corner ornaments). Sepia or aged color palette - warm browns, cream background. Slight texture suggesting aged paper or historical document. Could include subtitle "The Carrington Event" in smaller text below. Elegant, historical gravitas. Color palette: brown-sepia text, cream background, gold accents optional. Style: historical title card, Victorian typography, period-appropriate design. Transparent PNG or textured background.
+
+053_year_2024_title.png
+SHORT PROMPT: "TODAY" or "2024" modern title text, clean contemporary font, blue and white, technological feel, current era title card
+DETAILED: Title card reading "TODAY" or "2024" (or current year). Modern, clean sans-serif font. Sleek, contemporary design. Could include technological elements - subtle circuit board pattern, digital scan lines, or satellite orbit traces. Cool color palette suggesting modern technology. Professional but accessible. Not overly futuristic - represents present day. Color palette: blue and white primarily, silver accents. Style: modern title card, corporate presentation, tech company aesthetic. Transparent PNG or subtle gradient background.
+
+054_year_2075_title.png
+SHORT PROMPT: "THE FUTURE - 2075" title text, sleek futuristic font, holographic effect, optimistic sci-fi, inspirational future title card
+DETAILED: Title card reading "THE FUTURE - 2075" or just "2075." Futuristic font - sleek, geometric, but readable. Holographic effect - subtle iridescent edges, scan lines, or digital glow. Optimistic sci-fi aesthetic (not dystopian). Could include subtle space/orbit imagery. Inspiring and hopeful feeling. Premium, high-tech appearance. Color palette: cyan-blue and white, holographic rainbow edge effects, silver. Style: sci-fi title card, optimistic future branding, premium tech design. Transparent PNG with glowing effects.
+
+055_viking_runes.png
+SHORT PROMPT: Norse runes decorative pattern, authentic Viking symbols, arranged artistically, historical accuracy, cultural decoration
+DETAILED: Collection of authentic Norse/Viking runes arranged decoratively. Could be circular pattern, border design, or scattered composition. Historical Elder Futhark rune alphabet characters. Carved stone appearance or clean vector style. Respectful use of actual historical symbols. Not random - consider using runes that relate to sky, light, journey. Decorative element for Viking pages. Color palette: stone gray, white, subtle blue glow optional. Style: historical cultural design, respectful reproduction. Transparent PNG. Can be used as decorative border or accent element.
+
+056_inuit_art_pattern.png
+SHORT PROMPT: Traditional Inuit art pattern, respectful cultural design, geometric and nature motifs, authentic artistic style, educational representation
+DETAILED: Pattern inspired by traditional Inuit art. Geometric designs, stylized animals (polar bear, seal, whale), or natural elements (sun, ice, aurora waves). Authentic artistic style research required - respectful representation. Could be border pattern or scattered motifs. Traditional color palette - earth tones, blues, blacks, reds. Clean, graphic style. Educational and respectful, not appropriative. Can be used as decorative element for Arctic/Inuit pages. Style: authentic cultural art reproduction, educational respect. Transparent PNG. Consult cultural resources for accuracy.
+
+057_native_american_pattern.png
+SHORT PROMPT: Native American geometric pattern, respectful cultural design, Plains tribes aesthetic, authentic artistic tradition, educational representation
+DETAILED: Geometric pattern inspired by Northern Plains Native American art traditions. Respectful research-based design. Geometric shapes - diamonds, zigzags, step patterns. Traditional colors - earth reds, yellows, blues, blacks. Could represent specific meanings related to sky, stars, spiritual elements. Authentic style - not stereotyped or appropriated. Border pattern or scattered motifs. Cultural consultation ideal. Used as decorative element for Native American cultural pages. Style: authentic cultural art, respectful reproduction, educational quality. Transparent PNG. Accuracy and respect paramount.
+
+IMPORTANT NOTE ON CULTURAL ASSETS (055-057):
+These require careful research and cultural consultation. Consider:
+- Consulting cultural advisors or representatives
+- Using museum resources for authentic historical patterns
+- Providing cultural context in the story
+- Ensuring respectful, educational representation
+- Potentially commissioning from artists of these cultures
+
+================================================================================
+END OF DOCUMENT
+================================================================================
+
+GENERATION TIPS:
+- Use consistent art style across related images (all Fiery sprites, all characters, etc.)
+- Maintain color palette consistency (refer to hex codes provided)
+- For transparent PNGs, specify "transparent background, PNG format"
+- For full backgrounds, specify "full bleed image, JPEG format"
+- Test Fiery character consistency by generating sprite 001 first, then reference it
+- Consider generating in batches by category for style consistency
+- Educational accuracy important for scientific diagrams and cultural representations
+
+Total Asset Count: 57 images
+Priority: Generate Fiery sprites (001-006) first for character consistency
