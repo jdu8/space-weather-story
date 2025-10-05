@@ -1,3 +1,5 @@
+import { GoogleGenAI } from '@google/genai';
+
 export async function onRequest(context) {
   try {
     const { request, env } = context;
@@ -31,43 +33,22 @@ Output schema: { questions: Question[] }`;
 
     const userPrompt = `Create 5 ${difficulty} questions. Ensure options are plausible, unique, and only one is correct. Keep wording friendly and concise.`;
 
-    const body = {
+    // Use official SDK
+    const ai = new GoogleGenAI({ apiKey: env.GEMINI_API_KEY });
+    const model = 'gemini-2.5-flash';
+    const temperature = difficulty === 'easy' ? 0.4 : difficulty === 'medium' ? 0.6 : 0.8;
+
+    const response = await ai.models.generateContent({
+      model,
       contents: [
-        {
-          role: 'user',
-          parts: [
-            { text: systemPrompt },
-            { text: userPrompt },
-            { text: 'Respond with JSON only.' },
-          ],
-        },
+        { role: 'user', parts: [{ text: systemPrompt }] },
+        { role: 'user', parts: [{ text: userPrompt }] },
+        { role: 'user', parts: [{ text: 'Respond with JSON only.' }] },
       ],
-      generationConfig: {
-        temperature: difficulty === 'easy' ? 0.4 : difficulty === 'medium' ? 0.6 : 0.8,
-        maxOutputTokens: 1024,
-      },
-      safetySettings: [],
-    };
+      generationConfig: { temperature, maxOutputTokens: 1024 },
+    });
 
-    const resp = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${env.GEMINI_API_KEY}`,
-      {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify(body),
-      }
-    );
-
-    if (!resp.ok) {
-      const text = await resp.text();
-      return new Response(
-        JSON.stringify({ error: 'Gemini request failed', status: resp.status, body: text }),
-        { status: 502, headers: { 'content-type': 'application/json' } }
-      );
-    }
-
-    const data = await resp.json();
-    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text || '';
+    const text = response.text();
 
     // Attempt to parse JSON from the model response
     let parsed;
