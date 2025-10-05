@@ -4,6 +4,7 @@ import { TextureLoader } from 'three';
 import { motion } from 'framer-motion';
 import Canvas3D from '../Canvas3D';
 import TextOverlay from '../TextOverlay';
+import ShaderAurora from '../effects/ShaderAurora';
 
 // Fiery confused
 function FieryConfused({ animationProgress }) {
@@ -26,16 +27,6 @@ function FieryConfused({ animationProgress }) {
   );
 }
 
-// Gentle aurora in background (the same as always)
-function GentleAurora({ animationProgress }) {
-  const texture = useLoader(TextureLoader, '/sprites/036_aurora_green_curtain.png');
-
-  return (
-    <sprite position={[0, 1, -5]} scale={[15, 8, 1]}>
-      <spriteMaterial map={texture} transparent opacity={animationProgress * 0.3} />
-    </sprite>
-  );
-}
 
 // Page 16: Fiery's Confusion
 export default function Page16({ isInView }) {
@@ -74,7 +65,13 @@ export default function Page16({ isInView }) {
         showControls={false}
         camera={{ position: [0, 0, 8], fov: 60 }}
       >
-        <GentleAurora animationProgress={animationProgress} />
+        <ShaderAurora
+          animationProgress={animationProgress}
+          colors={['#00ff88', '#b47aff', '#00ffff']}
+          intensity={0.6}
+          position={[0, 1, -8]}
+          scale={[40, 12, 1]}
+        />
         <FieryConfused animationProgress={animationProgress} />
 
         <pointLight position={[0, 0, 5]} intensity={1} color="#ff8844" />

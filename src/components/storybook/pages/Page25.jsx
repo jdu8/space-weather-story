@@ -5,137 +5,23 @@ import { motion } from 'framer-motion';
 import Canvas3D from '../Canvas3D';
 import TextOverlay from '../TextOverlay';
 
-// Scientists dreaming/brainstorming
-function ScientistsDreaming({ animationProgress }) {
-  const texture = useLoader(TextureLoader, '/sprites/020_scientist_observing.png');
-  const childTexture = useLoader(TextureLoader, '/sprites/023_child_dreaming.png');
-
-  return (
-    <>
-      <sprite position={[-3, -1, 1]} scale={[2.5, 3, 1]}>
-        <spriteMaterial map={texture} transparent opacity={animationProgress} />
-      </sprite>
-      <sprite position={[3, -1, 1]} scale={[2, 2.5, 1]}>
-        <spriteMaterial map={childTexture} transparent opacity={animationProgress} />
-      </sprite>
-    </>
-  );
-}
-
-// Thought bubble/idea visualization
-function IdeaBubbles({ animationProgress }) {
-  const bubblesRef = useRef();
+// Science guy bobbing
+function ScienceGuyBobbing({ animationProgress }) {
+  const spriteRef = useRef();
+  const texture = useLoader(TextureLoader, '/sprites/061_science_guy.png');
 
   useFrame((state) => {
-    if (!bubblesRef.current) return;
+    if (!spriteRef.current) return;
     const time = state.clock.getElapsedTime();
 
-    bubblesRef.current.children.forEach((bubble, i) => {
-      bubble.position.y = bubble.userData.baseY + Math.sin(time + i) * 0.2;
-      const pulse = 1 + Math.sin(time * 2 + i * 0.5) * 0.1;
-      bubble.scale.setScalar(pulse * bubble.userData.baseScale);
-    });
-  });
-
-  const bubbles = [
-    { pos: [-3, 1.5, 0], scale: 0.5 },
-    { pos: [-2.5, 2, 0], scale: 0.4 },
-    { pos: [3, 1.5, 0], scale: 0.6 },
-    { pos: [2.5, 2.2, 0], scale: 0.45 },
-    { pos: [0, 2.5, 0], scale: 0.8 },
-  ];
-
-  return (
-    <group ref={bubblesRef}>
-      {bubbles.map((bubble, i) => (
-        <mesh
-          key={i}
-          position={bubble.pos}
-          userData={{ baseY: bubble.pos[1], baseScale: bubble.scale }}
-        >
-          <sphereGeometry args={[bubble.scale, 16, 16]} />
-          <meshStandardMaterial
-            color="#ffaa00"
-            emissive="#ffaa00"
-            emissiveIntensity={animationProgress * 0.8}
-            transparent
-            opacity={animationProgress * 0.3}
-          />
-        </mesh>
-      ))}
-    </group>
-  );
-}
-
-// Energy concept visualization
-function EnergyConceptGlow({ animationProgress }) {
-  const glowRef = useRef();
-
-  useFrame((state) => {
-    if (!glowRef.current) return;
-    const time = state.clock.getElapsedTime();
-
-    const pulse = 1 + Math.sin(time * 1.5) * 0.2;
-    glowRef.current.scale.setScalar(pulse * 3);
+    // Gentle bobbing motion
+    spriteRef.current.position.y = Math.sin(time * 1.5) * 0.3;
   });
 
   return (
-    <mesh ref={glowRef} position={[0, 1, -2]}>
-      <sphereGeometry args={[1, 32, 32]} />
-      <meshBasicMaterial
-        color="#00ff88"
-        transparent
-        opacity={animationProgress * 0.2}
-      />
-    </mesh>
-  );
-}
-
-// Question mark particles (curiosity)
-function QuestionParticles({ animationProgress }) {
-  const particlesRef = useRef();
-
-  useFrame(() => {
-    if (!particlesRef.current) return;
-
-    const positions = particlesRef.current.geometry.attributes.position.array;
-    const time = Date.now() * 0.001;
-
-    for (let i = 0; i < 30; i++) {
-      const i3 = i * 3;
-      const angle = (i / 30) * Math.PI * 2;
-      const t = ((time * 0.5 + i * 0.1) % 1);
-      const radius = t * 4;
-
-      positions[i3] = Math.cos(angle + time) * radius;
-      positions[i3 + 1] = 1 + t * 3;
-      positions[i3 + 2] = -2 + Math.sin(angle + time) * radius * 0.5;
-    }
-
-    particlesRef.current.geometry.attributes.position.needsUpdate = true;
-  });
-
-  const particleCount = 30;
-  const positions = new Float32Array(particleCount * 3);
-
-  return (
-    <points ref={particlesRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={particleCount}
-          array={positions}
-          itemSize={3}
-        />
-      </bufferGeometry>
-      <pointsMaterial
-        size={0.15}
-        color="#ffaa00"
-        transparent
-        opacity={animationProgress * 0.7}
-        sizeAttenuation
-      />
-    </points>
+    <sprite ref={spriteRef} position={[0, 0, 2]} scale={[5, 5, 1]}>
+      <spriteMaterial map={texture} transparent opacity={animationProgress} />
+    </sprite>
   );
 }
 
@@ -171,18 +57,15 @@ export default function Page25({ isInView }) {
     <>
       {isInView && (
         <Canvas3D
-        showStars={true}
-        showControls={false}
-        camera={{ position: [0, 0, 10], fov: 60 }}
-      >
-        <ScientistsDreaming animationProgress={animationProgress} />
-        <IdeaBubbles animationProgress={animationProgress} />
-        <EnergyConceptGlow animationProgress={animationProgress} />
-        <QuestionParticles animationProgress={animationProgress} />
+          showStars={true}
+          showControls={false}
+          camera={{ position: [0, 0, 10], fov: 60 }}
+        >
+          <ScienceGuyBobbing animationProgress={animationProgress} />
 
-        <pointLight position={[0, 2, 3]} intensity={2} color="#ffaa00" />
-        <ambientLight intensity={0.4} />
-      </Canvas3D>
+          <pointLight position={[0, 2, 3]} intensity={2} color="#ffaa00" />
+          <ambientLight intensity={0.4} />
+        </Canvas3D>
       )}
 
       <TextOverlay position="bottom" isInView={isInView}>

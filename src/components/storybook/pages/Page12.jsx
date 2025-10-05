@@ -10,26 +10,29 @@ import * as THREE from 'three';
 // Multiple satellites orbiting
 function OrbitingSatellites({ animationProgress }) {
   const groupRef = useRef();
-  const satelliteTexture = useLoader(TextureLoader, '/sprites/010_satellite_hardened.png');
+  const satelliteTexture = useLoader(TextureLoader, '/sprites/060_satalite.png');
 
   useFrame((state) => {
     if (!groupRef.current) return;
-    groupRef.current.rotation.y += 0.01;
+    const time = state.clock.getElapsedTime();
+    groupRef.current.children.forEach((sprite, i) => {
+      const angle = (i / 12) * Math.PI * 2 + time * 0.3;
+      const radius = 3.5 + (i % 3) * 0.5;
+      const x = Math.cos(angle) * radius;
+      const z = -3 + Math.sin(angle) * radius;
+      const y = (Math.sin(angle * 2) - 0.5) * 1.5;
+      sprite.position.set(x, y, z);
+      sprite.rotation.y = -angle; // slight facing direction
+    });
   });
 
   const satellites = [];
   const numSatellites = 12;
 
   for (let i = 0; i < numSatellites; i++) {
-    const angle = (i / numSatellites) * Math.PI * 2;
-    const radius = 3.5 + (i % 3) * 0.5;
-    const x = Math.cos(angle) * radius;
-    const z = -3 + Math.sin(angle) * radius;
-    const y = (Math.sin(angle * 2) - 0.5) * 1.5;
-
     satellites.push(
-      <sprite key={i} position={[x, y, z]} scale={[0.8, 0.8, 1]}>
-        <spriteMaterial map={satelliteTexture} transparent opacity={animationProgress} />
+      <sprite key={i} scale={[0.8, 0.8, 1]}>
+        <spriteMaterial map={satelliteTexture} transparent opacity={animationProgress} depthTest depthWrite={false} />
       </sprite>
     );
   }
@@ -57,24 +60,7 @@ function TechIcons({ animationProgress }) {
     [5, -2, 2],
   ];
 
-  return (
-    <group ref={iconsRef}>
-      {iconPositions.map((pos, i) => (
-        <mesh
-          key={i}
-          position={pos}
-          userData={{ baseY: pos[1] }}
-        >
-          <sphereGeometry args={[0.3, 16, 16]} />
-          <meshStandardMaterial
-            color={i % 2 === 0 ? '#00d9ff' : '#ff6b35'}
-            emissive={i % 2 === 0 ? '#00d9ff' : '#ff6b35'}
-            emissiveIntensity={animationProgress * 0.5}
-          />
-        </mesh>
-      ))}
-    </group>
-  );
+  return null; // removed colored blobs
 }
 
 // Page 12: The Technological Explosion
@@ -109,28 +95,24 @@ export default function Page12({ isInView }) {
     <>
       {isInView && (
         <>
-          <ThreeJSEarth
-            width={480}
-            height={480}
-            position="absolute"
-            left="50%"
-            top="50%"
-            opacity={animationProgress}
-            rotationSpeed={0.006}
-            className="translate-center"
-          />
           <Canvas3D
             showStars={true}
             showControls={false}
             camera={{ position: [0, 0, 10], fov: 60 }}
           >
             <OrbitingSatellites animationProgress={animationProgress} />
-            <TechIcons animationProgress={animationProgress} />
-
-            <pointLight position={[5, 5, 5]} intensity={2} color="#00d9ff" />
-            <pointLight position={[-5, -5, 5]} intensity={2} color="#ff6b35" />
-            <ambientLight intensity={0.4} />
+            <ambientLight intensity={0.6} />
           </Canvas3D>
+          <ThreeJSEarth
+            width={480}
+            height={480}
+            position="absolute"
+            left="50%"
+            top="50%"
+            opacity={1}
+            rotationSpeed={0.006}
+            className="translate-center"
+          />
         </>
       )}
 

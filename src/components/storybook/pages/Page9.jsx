@@ -1,119 +1,44 @@
 import { useRef, useState, useEffect } from 'react';
-import { useFrame } from '@react-three/fiber';
+import { useFrame, useLoader } from '@react-three/fiber';
+import { TextureLoader } from 'three';
 import { motion } from 'framer-motion';
 import Canvas3D from '../Canvas3D';
 import TextOverlay from '../TextOverlay';
+import ShaderAurora from '../effects/ShaderAurora';
 import * as THREE from 'three';
 
-// Time-lapse evolution of lights
-function EvolvingLights({ animationProgress }) {
-  const lightsRef = useRef();
-
-  // Campfires -> candles -> gas lamps -> electric lights
-  const stage = Math.floor(animationProgress * 4);
+// Fiery arriving (happy version)
+function FieryArriving({ animationProgress }) {
+  const spriteRef = useRef();
+  const texture = useLoader(TextureLoader, '/sprites/003_fiery_happy.png');
 
   useFrame((state) => {
-    if (!lightsRef.current) return;
+    if (!spriteRef.current) return;
     const time = state.clock.getElapsedTime();
-
-    lightsRef.current.children.forEach((light, i) => {
-      if (light.intensity !== undefined) {
-        light.intensity = light.userData.baseIntensity * (1 + Math.sin(time * 2 + i) * 0.1);
-      }
-    });
+    spriteRef.current.position.y = Math.sin(time * 1.2) * 0.2;
   });
 
-  const createLightGrid = (count, spread, color, intensity) => {
-    const lights = [];
-    const gridSize = Math.sqrt(count);
-
-    for (let i = 0; i < count; i++) {
-      const x = ((i % gridSize) / gridSize - 0.5) * spread;
-      const z = (Math.floor(i / gridSize) / gridSize - 0.5) * spread - 5;
-      const y = -2;
-
-      lights.push(
-        <pointLight
-          key={i}
-          position={[x, y, z]}
-          color={color}
-          intensity={intensity}
-          distance={3}
-          userData={{ baseIntensity: intensity }}
-        />
-      );
-    }
-
-    return lights;
-  };
-
-  let lights = [];
-  let lightColor = '#ff6600';
-
-  if (stage === 0) {
-    // Campfires - scattered, warm orange
-    lights = createLightGrid(5, 12, '#ff6600', 1.5);
-    lightColor = '#ff6600';
-  } else if (stage === 1) {
-    // Candles - more numerous, dimmer
-    lights = createLightGrid(12, 14, '#ffaa44', 0.8);
-    lightColor = '#ffaa44';
-  } else if (stage === 2) {
-    // Gas lamps - brighter, more organized
-    lights = createLightGrid(20, 16, '#ffcc66', 1.2);
-    lightColor = '#ffcc66';
-  } else {
-    // Electric lights - grid pattern, bright white
-    lights = createLightGrid(40, 20, '#ffffff', 1.5);
-    lightColor = '#ffffff';
-  }
+  const xPos = -8 + animationProgress * 8;
+  const scale = 2 + animationProgress * 2;
 
   return (
-    <>
-      <group ref={lightsRef}>{lights}</group>
-      <mesh position={[0, -3, -5]} rotation={[-Math.PI / 2, 0, 0]}>
-        <planeGeometry args={[25, 12]} />
-        <meshStandardMaterial
-          color="#1a1a2e"
-          emissive={lightColor}
-          emissiveIntensity={animationProgress * 0.1}
-        />
-      </mesh>
-    </>
+    <sprite ref={spriteRef} position={[xPos, 1, 2]} scale={[scale, scale, 1]}>
+      <spriteMaterial map={texture} transparent />
+    </sprite>
   );
 }
 
-// Silhouette of evolving civilization
-function CivilizationSilhouette({ animationProgress }) {
-  const stage = Math.floor(animationProgress * 4);
 
-  const shapes = [
-    // Stage 0: Simple huts
-    [[-4, -2, 0, 1.5, 2], [0, -2, 0, 1.5, 2], [4, -2, 0, 1.5, 2]],
-    // Stage 1: Small houses
-    [[-5, -2, 0, 2, 2.5], [-1.5, -2, 0, 2, 2.5], [2, -2, 0, 2, 2.5], [5, -2, 0, 1.5, 2]],
-    // Stage 2: Buildings
-    [[-6, -2, 0, 2, 3.5], [-3, -2, 0, 2.5, 4], [0, -2, 0, 2, 3], [3, -2, 0, 2.5, 4.5], [6, -2, 0, 1.5, 2.5]],
-    // Stage 3: Skyscrapers
-    [[-6, -2, 0, 1.5, 5], [-4, -2, 0, 1.5, 6.5], [-1, -2, 0, 2, 7], [2, -2, 0, 1.5, 6], [5, -2, 0, 2, 5.5]],
-  ];
+// Year 1859 title as 3D text
+function Year1859Title({ animationProgress }) {
+  const opacity = Math.max(0, (animationProgress - 0.2) * 2);
 
-  const currentShapes = shapes[Math.min(stage, 3)];
-
-  return (
-    <group position={[0, 0, -3]}>
-      {currentShapes.map(([x, y, z, width, height], i) => (
-        <mesh key={i} position={[x, y + height / 2, z]}>
-          <boxGeometry args={[width, height, 0.5]} />
-          <meshBasicMaterial color="#000000" />
-        </mesh>
-      ))}
-    </group>
-  );
+  return null; // Will be rendered as HTML overlay instead
 }
 
-// Page 9: Humans Evolve
-export default function Page9({ isInView }) {
+
+// Page 10: 1859 Carrington Event
+export default function Page10({ isInView }) {
   const [animationProgress, setAnimationProgress] = useState(0);
 
   useEffect(() => {
@@ -122,7 +47,7 @@ export default function Page9({ isInView }) {
       return;
     }
 
-    const duration = 6000;
+    const duration = 4000;
     const startTime = Date.now();
 
     const animate = () => {
@@ -138,69 +63,98 @@ export default function Page9({ isInView }) {
     animate();
   }, [isInView]);
 
-  const stage = Math.floor(animationProgress * 4);
-  const stageNames = ['Campfires', 'Candles', 'Gas Lamps', 'Electric Lights'];
+  const textProgress = Math.max(0, Math.min(animationProgress * 2, 1));
 
   return (
     <>
       {isInView && (
         <Canvas3D
-        showStars={true}
-        showControls={false}
-        camera={{ position: [0, 0, 12], fov: 60 }}
-      >
-        <EvolvingLights animationProgress={animationProgress} />
-        <CivilizationSilhouette animationProgress={animationProgress} />
+          showStars={true}
+          showControls={false}
+          camera={{ position: [0, 0, 10], fov: 70 }}
+        >
+          <ShaderAurora
+            animationProgress={animationProgress}
+            intensity={2.5}
+            position={[0, 3.5, -8]}
+            scale={[60, 20, 1]}
+          />
+          <FieryArriving animationProgress={animationProgress} />
 
-        <ambientLight intensity={0.2} />
-      </Canvas3D>
+          <ambientLight intensity={0.3} />
+        </Canvas3D>
       )}
+
+      {/* Year 1859 Title Overlay */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{
+          opacity: Math.max(0, (animationProgress - 0.2) * 2),
+          scale: animationProgress > 0.2 ? 1 : 0.8
+        }}
+        transition={{ duration: 0.8 }}
+        style={{
+          position: 'absolute',
+          top: '15%',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          pointerEvents: 'none',
+          zIndex: 10,
+        }}
+      >
+        <h1
+          style={{
+            fontSize: 'clamp(64px, 10vw, 120px)',
+            fontWeight: 900,
+            color: '#fff',
+            textShadow: '0 0 60px rgba(255, 0, 100, 0.8), 0 0 100px rgba(255, 0, 100, 0.5)',
+            letterSpacing: '0.1em',
+            fontFamily: "'Impact', 'Arial Black', sans-serif",
+            WebkitTextStroke: '2px rgba(255, 0, 100, 0.5)',
+            margin: 0,
+          }}
+        >
+          1859
+        </h1>
+      </motion.div>
 
       <TextOverlay position="bottom" isInView={isInView}>
         <motion.div
-          key={stage}
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="glass-strong px-10 py-6 rounded-2xl max-w-3xl"
+          animate={{ opacity: textProgress, y: textProgress > 0 ? 0 : 20 }}
+          transition={{ duration: 0.6 }}
+          className="glass-strong px-10 py-8 rounded-2xl max-w-4xl"
           style={{
-            background: 'rgba(26, 21, 32, 0.9)',
+            background: 'rgba(42, 21, 32, 0.9)',
             backdropFilter: 'blur(16px)',
-            border: '2px solid rgba(255, 107, 53, 0.3)',
+            border: '2px solid rgba(255, 0, 100, 0.5)',
+            boxShadow: '0 0 40px rgba(255, 0, 100, 0.3)',
           }}
         >
-          <div className="text-center">
-            <motion.div
-              className="text-5xl mb-4"
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 0.5 }}
-            >
-              {stage === 0 && '🔥'}
-              {stage === 1 && '🕯️'}
-              {stage === 2 && '💡'}
-              {stage === 3 && '⚡'}
-            </motion.div>
-            <h3
-              className="font-bold mb-2"
-              style={{
-                fontSize: 'clamp(20px, 2.5vw, 28px)',
-                color: '#ff8844',
-              }}
-            >
-              {stageNames[Math.min(stage, 3)]}
-            </h3>
-            <p
-              className="text-center"
-              style={{
-                fontSize: 'clamp(16px, 2vw, 20px)',
-                color: '#ffffff',
-                lineHeight: 1.7,
-                fontWeight: 300,
-              }}
-            >
-              Humanity evolved, creating new ways to light the darkness...
-            </p>
-          </div>
+          <h3
+            className="text-center font-bold mb-4"
+            style={{
+              fontSize: 'clamp(26px, 3.5vw, 36px)',
+              color: '#ff0066',
+              textShadow: '0 0 30px rgba(255, 0, 100, 0.6)',
+            }}
+          >
+            The Carrington Event
+          </h3>
+          <p
+            className="text-center"
+            style={{
+              fontSize: 'clamp(16px, 2.2vw, 22px)',
+              color: '#ffffff',
+              lineHeight: 1.8,
+              fontWeight: 300,
+            }}
+          >
+            September 1859: Fiery created the{' '}
+            <strong style={{ color: '#ff0066' }}>most powerful auroras ever recorded</strong>
+            ! So bright, people could read newspapers at midnight. Auroras appeared as far south
+            as the Caribbean. It was magnificent... but humanity was about to change.
+          </p>
         </motion.div>
       </TextOverlay>
     </>

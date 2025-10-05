@@ -158,7 +158,7 @@ export default function Page4({ isInView }) {
             position="absolute"
             right="25%"
             top="50%"
-            opacity={animationProgress}
+            opacity={1}
             rotationSpeed={0.005}
             className="translate-y-center"
           />

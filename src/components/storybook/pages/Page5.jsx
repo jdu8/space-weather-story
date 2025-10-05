@@ -159,7 +159,7 @@ export default function Page5({ isInView }) {
             position="absolute"
             left="50%"
             top="50%"
-            opacity={animationProgress}
+            opacity={1}
             rotationSpeed={0.004}
             className="translate-center"
           />

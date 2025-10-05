@@ -1,119 +1,7 @@
-import { useRef, useState, useEffect } from 'react';
-import { useFrame, useLoader } from '@react-three/fiber';
-import { TextureLoader } from 'three';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Canvas3D from '../Canvas3D';
 import TextOverlay from '../TextOverlay';
-import * as THREE from 'three';
-
-// Tumbling satellite
-function TumblingSatellite({ animationProgress }) {
-  const spriteRef = useRef();
-  const texture = useLoader(TextureLoader, '/sprites/009_satellite_tumbling.png');
-
-  useFrame((state) => {
-    if (!spriteRef.current) return;
-    const time = state.clock.getElapsedTime();
-
-    // Tumbling rotation
-    spriteRef.current.rotation.z = time * 2;
-
-    // Falling/drifting
-    spriteRef.current.position.x = Math.sin(time * 0.8) * 2;
-    spriteRef.current.position.y = 1 - (animationProgress * 3);
-  });
-
-  return (
-    <sprite ref={spriteRef} position={[-2, 1, 0]} scale={[2, 2, 1]}>
-      <spriteMaterial map={texture} transparent opacity={animationProgress} />
-    </sprite>
-  );
-}
-
-// Exploding transformer
-function ExplodingTransformer({ animationProgress }) {
-  const texture = useLoader(TextureLoader, '/sprites/012_transformer_exploding.png');
-  const explosionProgress = Math.max(0, (animationProgress - 0.3) * 1.43);
-
-  return (
-    <sprite position={[2, -1, 0]} scale={[3, 3, 1]}>
-      <spriteMaterial
-        map={texture}
-        transparent
-        opacity={explosionProgress}
-        blending={THREE.AdditiveBlending}
-      />
-    </sprite>
-  );
-}
-
-// GPS error icon
-function GPSError({ animationProgress }) {
-  const texture = useLoader(TextureLoader, '/sprites/013_gps_icon_error.png');
-  const spriteRef = useRef();
-
-  useFrame((state) => {
-    if (!spriteRef.current) return;
-    const time = state.clock.getElapsedTime();
-    spriteRef.current.scale.setScalar(1.5 + Math.sin(time * 3) * 0.2);
-  });
-
-  const errorProgress = Math.max(0, (animationProgress - 0.5) * 2);
-
-  return (
-    <sprite ref={spriteRef} position={[0, 1.5, 1]} scale={[1.5, 1.5, 1]}>
-      <spriteMaterial map={texture} transparent opacity={errorProgress} />
-    </sprite>
-  );
-}
-
-// Glitch particles
-function GlitchParticles({ animationProgress }) {
-  const particlesRef = useRef();
-
-  useFrame(() => {
-    if (!particlesRef.current) return;
-
-    const positions = particlesRef.current.geometry.attributes.position.array;
-    const time = Date.now() * 0.005;
-
-    for (let i = 0; i < 100; i++) {
-      const i3 = i * 3;
-
-      // Chaotic glitch movement
-      positions[i3] = (Math.random() - 0.5) * 10;
-      positions[i3 + 1] = (Math.random() - 0.5) * 8;
-      positions[i3 + 2] = (Math.random() - 0.5) * 4;
-    }
-
-    particlesRef.current.geometry.attributes.position.needsUpdate = true;
-  });
-
-  const particleCount = 100;
-  const positions = new Float32Array(particleCount * 3);
-
-  return (
-    <points ref={particlesRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={particleCount}
-          array={positions}
-          itemSize={3}
-        />
-      </bufferGeometry>
-      <pointsMaterial
-        size={0.1}
-        color="#ff0033"
-        transparent
-        opacity={animationProgress * 0.7}
-        sizeAttenuation
-      />
-    </points>
-  );
-}
-
-// Page 14: Technology Fails
+// Page 14: Technology Fails (video background)
 export default function Page14({ isInView }) {
   const [animationProgress, setAnimationProgress] = useState(0);
 
@@ -144,20 +32,16 @@ export default function Page14({ isInView }) {
   return (
     <>
       {isInView && (
-        <Canvas3D
-        showStars={true}
-        showControls={false}
-        camera={{ position: [0, 0, 8], fov: 70 }}
-        backgroundColor="#1a0a0a"
-      >
-        <TumblingSatellite animationProgress={animationProgress} />
-        <ExplodingTransformer animationProgress={animationProgress} />
-        <GPSError animationProgress={animationProgress} />
-        <GlitchParticles animationProgress={animationProgress} />
-
-        <pointLight position={[2, -1, 2]} intensity={3} color="#ff6b35" />
-        <ambientLight intensity={0.2} />
-      </Canvas3D>
+        <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
+          <video
+            src="/videos/cme_panic.mp4"
+            autoPlay
+            muted
+            playsInline
+            loop
+            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+          />
+        </div>
       )}
 
       <TextOverlay position="bottom" isInView={isInView}>
