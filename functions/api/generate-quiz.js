@@ -49,7 +49,7 @@ Output schema: { questions: Question[] }`;
         contents: makePromptString(),
         generationConfig: { temperature, maxOutputTokens: 1024 },
       });
-      text = response.text();
+      text = response.text;
     } catch (primaryErr) {
       // Try fallback model for resilience
       try {
@@ -58,7 +58,7 @@ Output schema: { questions: Question[] }`;
           contents: makePromptString(),
           generationConfig: { temperature, maxOutputTokens: 1024 },
         });
-        text = response.text();
+        text = response.text;
         modelUsed = fallbackModel;
       } catch (fallbackErr) {
         console.error('Gemini error', { primary: String(primaryErr), fallback: String(fallbackErr) });
