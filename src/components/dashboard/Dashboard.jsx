@@ -41,6 +41,7 @@ export default function Dashboard() {
       const cmeJson = await cmeResponse.json();
       setCmeData(cmeJson.slice(0, 10)); // Latest 10 CMEs
 
+      
       // Fetch Solar Flare data
       const flareResponse = await fetch(
         `${baseURL}/FLR?startDate=${formatDate(startDate)}&endDate=${formatDate(endDate)}&api_key=${apiKey}`
