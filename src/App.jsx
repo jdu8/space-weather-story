@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
 import Hero from './components/Hero';
 import Storybook from './components/Storybook';
-import DataExplorer from './components/DataExplorer';
 
 export default function App() {
   useEffect(() => {
@@ -23,8 +22,7 @@ export default function App() {
         {/* Storybook Section */}
         <Storybook />
 
-        {/* Data Explorer Section */}
-        <DataExplorer />
+        {/* Data Explorer Section removed */}
       </div>
     </ErrorBoundary>
   );

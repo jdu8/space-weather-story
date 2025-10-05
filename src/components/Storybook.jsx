@@ -317,28 +317,6 @@ export default function Storybook() {
         {({ isInView, replayKey }) => <Page30 key={replayKey} isInView={isInView} />}
       </PageContainer>
 
-      {/* Transition to Data Explorer */}
-      <div
-        className="flex items-center justify-center bg-gradient-to-b from-[#2a4a5f] to-[var(--deep-space)]"
-        style={{
-          scrollSnapAlign: 'start',
-          height: '50vh',
-          minHeight: '400px',
-        }}
-      >
-        <div className="text-center px-4">
-          <h3 className="text-3xl md:text-5xl font-bold mb-4 text-[var(--aurora-green)]">
-            Ready to Explore?
-          </h3>
-          <p className="text-xl text-gray-300 mb-8">
-            Dive into real space weather data and simulations
-          </p>
-          <div className="text-[var(--aurora-blue)] text-4xl animate-bounce">
-            ↓
-          </div>
-        </div>
-      </div>
-
       {/* Data Dashboard Section */}
       <div
         style={{
