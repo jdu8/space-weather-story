@@ -9,7 +9,7 @@ import * as THREE from 'three';
 // Fiery flying through space
 function FieryFlying({ animationProgress }) {
   const spriteRef = useRef();
-  const texture = useLoader(TextureLoader, '/src/assets/sprites/fiery_flying.png');
+  const texture = useLoader(TextureLoader, '/sprites/002_fiery_flying.png');
 
   useFrame((state) => {
     if (!spriteRef.current) return;
@@ -183,7 +183,8 @@ export default function Page3({ isInView }) {
 
   return (
     <>
-      <Canvas3D
+      {isInView && (
+        <Canvas3D
         showStars={true}
         showControls={false}
         camera={{ position: [0, 0, 8], fov: 70 }}
@@ -201,6 +202,7 @@ export default function Page3({ isInView }) {
         <pointLight position={[0, 0, 5]} intensity={1.5} color="#ff8844" />
         <ambientLight intensity={0.4} />
       </Canvas3D>
+      )}
 
       <TextOverlay position="bottom" isInView={isInView}>
         <motion.div

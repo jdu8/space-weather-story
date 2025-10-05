@@ -1,15 +1,21 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import PageNavigation from './PageNavigation';
 
 export default function PageContainer({
   id,
   children,
   onPageEnter,
   onPageExit,
-  backgroundColor = 'transparent'
+  backgroundColor = 'transparent',
+  currentPage,
+  totalPages,
+  onReplay,
+  onNext,
 }) {
   const pageRef = useRef(null);
   const [isInView, setIsInView] = useState(false);
+  const [replayKey, setReplayKey] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -43,6 +49,13 @@ export default function PageContainer({
     };
   }, [onPageEnter, onPageExit, isInView]);
 
+  const handleReplay = () => {
+    setReplayKey((prev) => prev + 1);
+    if (onReplay) {
+      onReplay();
+    }
+  };
+
   return (
     <div
       ref={pageRef}
@@ -58,7 +71,17 @@ export default function PageContainer({
       }}
       data-in-view={isInView}
     >
-      {children({ isInView })}
+      {children({ isInView, replayKey })}
+
+      {/* Navigation buttons - only show when page is in view */}
+      {isInView && currentPage && totalPages && (
+        <PageNavigation
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onReplay={handleReplay}
+          onNext={onNext}
+        />
+      )}
     </div>
   );
 }

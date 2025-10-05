@@ -8,9 +8,10 @@ export default function Canvas3D({
   showControls = false,
   ambient = 0.2,
   className = '',
+  backgroundColor,
 }) {
   return (
-    <div className={`absolute inset-0 ${className}`}>
+    <div className={`absolute inset-0 ${className}`} style={{ backgroundColor: backgroundColor || 'transparent' }}>
       <Canvas
         camera={camera}
         gl={{ antialias: true, alpha: true }}

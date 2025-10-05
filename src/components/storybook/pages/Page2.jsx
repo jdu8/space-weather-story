@@ -92,7 +92,7 @@ function EruptionBurst({ animationProgress }) {
 // Fiery sprite emerging
 function FierySprite({ animationProgress }) {
   const spriteRef = useRef();
-  const texture = useLoader(TextureLoader, '/src/assets/sprites/fiery_saying_hi.png');
+  const texture = useLoader(TextureLoader, '/sprites/001_fiery_saying_hi.png');
 
   // Sprite appears starting at 30% progress
   const spritePhase = Math.max(0, (animationProgress - 0.3) * 1.43);
@@ -160,7 +160,8 @@ export default function Page2({ isInView }) {
 
   return (
     <>
-      <Canvas3D
+      {isInView && (
+        <Canvas3D
         showStars={true}
         showControls={false}
         camera={{ position: [0, 0, 6], fov: 60 }}
@@ -178,6 +179,7 @@ export default function Page2({ isInView }) {
         <pointLight position={[0, 0, 3]} intensity={2} color="#ff8844" />
         <ambientLight intensity={0.4} />
       </Canvas3D>
+      )}
 
       <TextOverlay position="bottom" isInView={isInView}>
         {/* Eruption text (fades out when Fiery appears) */}

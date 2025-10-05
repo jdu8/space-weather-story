@@ -195,28 +195,30 @@ function CameraController({ isInView }) {
 export default function Page1({ isInView }) {
   return (
     <>
-      {/* 3D Background Scene */}
-      <Canvas3D
-        showStars={true}
-        showControls={false}
-        camera={{ position: [0, 0, 10], fov: 60 }}
-      >
-        <CameraController isInView={isInView} />
+      {/* Only render Canvas when page is in view */}
+      {isInView && (
+        <Canvas3D
+          showStars={true}
+          showControls={false}
+          camera={{ position: [0, 0, 10], fov: 60 }}
+        >
+          <CameraController isInView={isInView} />
 
-        {/* Sun */}
-        <Sun />
+          {/* Sun */}
+          <Sun />
 
-        {/* Magnetic Field Lines (8 lines) */}
-        {[...Array(8)].map((_, i) => (
-          <MagneticFieldLine key={i} index={i} total={8} />
-        ))}
+          {/* Magnetic Field Lines (8 lines) */}
+          {[...Array(8)].map((_, i) => (
+            <MagneticFieldLine key={i} index={i} total={8} />
+          ))}
 
-        {/* Drifting Particles */}
-        <DriftingParticles />
+          {/* Drifting Particles */}
+          <DriftingParticles />
 
-        {/* Enhanced lighting */}
-        <pointLight position={[0, 0, 0]} intensity={2.5} color="#ff8844" />
-      </Canvas3D>
+          {/* Enhanced lighting */}
+          <pointLight position={[0, 0, 0]} intensity={2.5} color="#ff8844" />
+        </Canvas3D>
+      )}
 
       {/* Text Overlay */}
       <TextOverlay position="bottom" isInView={isInView}>
