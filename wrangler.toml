@@ -1,0 +1,7 @@
+name = "space-weather-story"
+compatibility_date = "2025-10-05"
+
+# This section tells Wrangler to deploy a static site
+# and that the files are in the "dist" folder.
+[site]
+bucket = "./dist"
